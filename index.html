@@ -20,11 +20,13 @@ Guardar Participante
 <p id="estado"></p>
 
 <script type="module">
-document.getElementById("guardar").addEventListener("click", () => {
-  document.getElementById("estado").textContent =
-    "El botón funciona";
-});
 
+import { db } from "./firestore.js";
+
+document.getElementById("guardar").addEventListener("click", async () => {
+  document.getElementById("estado").textContent =
+    "Firestore conectado";
+});
 
 </script>
 
