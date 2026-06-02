@@ -32,21 +32,24 @@ document.getElementById("guardar").addEventListener("click", async () => {
 
   const nombre = document.getElementById("nombre").value;
 
+  document.getElementById("estado").textContent =
+    "Intentando guardar...";
+
   try {
 
-    await addDoc(collection(db, "participantes"), {
+    const docRef = await addDoc(collection(db, "participantes"), {
       nombre: nombre,
       puntos: 0,
       pagado: false
     });
 
     document.getElementById("estado").textContent =
-      "Prueba nueva 123";
+      "Guardado OK: " + docRef.id;
 
   } catch (error) {
 
     document.getElementById("estado").textContent =
-      "Error: " + error.message;
+      "ERROR: " + error.code + " - " + error.message;
 
   }
 
