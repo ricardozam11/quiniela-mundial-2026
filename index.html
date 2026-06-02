@@ -8,7 +8,12 @@
 <body>
 
 <h1>QUINIELA MUNDIAL 2026</h1>
-
+<div>
+  <p>Total participantes: <span id="totalParticipantes">0</span></p>
+  <p>Pagados: <span id="totalPagados">0</span></p>
+  <p>Pendientes: <span id="totalPendientes">0</span></p>
+  <p>Recaudado: ₡<span id="recaudado">0</span></p>
+</div>
 <p>Proyecto conectado a Firebase.</p>
 
 <input type="text" id="nombre" placeholder="Nombre participante">
@@ -37,12 +42,17 @@ async function cargarParticipantes() {
   const lista = document.getElementById("listaParticipantes");
 
   lista.innerHTML = "";
-
+let total = 0;
+let pagados = 0;
   const querySnapshot =
     await getDocs(collection(db, "participantes"));
 
   querySnapshot.forEach((doc) => {
+total++;
 
+if (datos.pagado) {
+  pagados++;
+}
     const datos = doc.data();
 
     const li = document.createElement("li");
@@ -80,7 +90,13 @@ document.getElementById("guardar").addEventListener("click", async () => {
 
     document.getElementById("estado").textContent =
       "ERROR: " + error.message;
+document.getElementById("totalParticipantes").textContent = total;
+document.getElementById("totalPagados").textContent = pagados;
+document.getElementById("totalPendientes").textContent =
+  total - pagados;
 
+document.getElementById("recaudado").textContent =
+  (pagados * 10000).toLocaleString();
   }
 
 });
