@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QUINIELA MUNDIAL 2026</title>
+</head>
+<body>
+
+<h1>QUINIELA MUNDIAL 2026</h1>
+<div>
+  <p>Total participantes: <span id="totalParticipantes">0</span></p>
+  <p>Pagados: <span id="totalPagados">0</span></p>
+  <p>Pendientes: <span id="totalPendientes">0</span></p>
+  <p>Recaudado: ₡<span id="recaudado">0</span></p>
+</div>
+<p>Proyecto conectado a Firebase.</p>
+
+<input type="text" id="nombre" placeholder="Nombre participante">
+
+<button id="guardar">
+Guardar Participante
+</button>
+
+<p id="estado"></p>
+  <h2>Participantes registrados</h2>
+
+<ul id="listaParticipantes"></ul>
+
+<script type="module">
+
+import { db } from "./firestore.js";
+
+import {
+  collection,
+  addDoc,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+async function cargarParticipantes() {
+
+  const lista = document.getElementById("listaParticipantes");
+
+  lista.innerHTML = "";
+
+  let total = 0;
+  let pagados = 0;
+
+  const querySnapshot =
+    await getDocs(collection(db, "participantes"));
+
+  querySnapshot.forEach((doc) => {
+
+    const datos = doc.data();
+
+    total++;
+
+    if (datos.pagado) {
+      pagados++;
+    }
+
+    const li = document.createElement("li");
+
+    
+li.textContent =
+  (datos.pagado ? "✅ " : "❌ ") + datos.nombre;
+    lista.appendChild(li);
+
+  });
+
+  document.getElementById("totalParticipantes").textContent = total;
+  document.getElementById("totalPagados").textContent = pagados;
+  document.getElementById("totalPendientes").textContent =
+    total - pagados;
+
+  document.getElementById("recaudado").textContent =
+    (pagados * 10000).toLocaleString();
+
+}
+
+document.getElementById("guardar").addEventListener("click", async () => {
+
+  const nombre =
+    document.getElementById("nombre").value.trim();
+
+  if (!nombre || nombre.length < 2) {
+    document.getElementById("estado").textContent =
+      "Ingrese un nombre válido";
+    return;
+  }
+
+  try {
+
+    await addDoc(collection(db, "participantes"), {
+      nombre: nombre,
+      puntos: 0,
+      pagado: false
+    });
+
+    document.getElementById("estado").textContent =
+      "Participante guardado correctamente";
+
+    document.getElementById("nombre").value = "";
+
+    await cargarParticipantes();
+
+  } catch (error) {
+
+    document.getElementById("estado").textContent =
+      "ERROR: " + error.message;
+
+  }
+
+});
+
+cargarParticipantes();
+
+</script>
+
+</body>
+</html>
