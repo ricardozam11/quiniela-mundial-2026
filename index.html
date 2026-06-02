@@ -83,9 +83,9 @@ document.getElementById("guardar").addEventListener("click", async () => {
   const nombre =
     document.getElementById("nombre").value.trim();
 
-  if (!nombre) {
+  if (!nombre || nombre.length < 2) {
     document.getElementById("estado").textContent =
-      "Ingrese un nombre";
+      "Ingrese un nombre válido";
     return;
   }
 
