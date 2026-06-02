@@ -13,7 +13,7 @@
 
         <div class="contador-recaudado">
             <h3>Dinero Total Recolectado</h3>
-            <span>₡ 0,00</span>
+            <span id="dineroRecaudado">₡ 0,00</span>
             <small>Se actualiza automáticamente según participantes activos</small>
         </div>
 
@@ -1424,7 +1424,7 @@ import {
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 async function cargarEstadisticas() {
-alert("Firebase conectado");
+
   let total = 0;
   let pagados = 0;
 const tabla =
@@ -1453,9 +1453,14 @@ tabla.appendChild(fila);
 
   });
 
-  console.log("Participantes:", total);
-  console.log("Pagados:", pagados);
-  console.log("Recaudado:", pagados * 10000);
+  const recaudado = pagados * 10000;
+
+document.getElementById("dineroRecaudado").textContent =
+  "₡ " + recaudado.toLocaleString("es-CR");
+
+console.log("Participantes:", total);
+console.log("Pagados:", pagados);
+console.log("Recaudado:", recaudado);
 
 }
 
