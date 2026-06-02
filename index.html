@@ -18,6 +18,9 @@ Guardar Participante
 </button>
 
 <p id="estado"></p>
+  <h2>Participantes registrados</h2>
+
+<ul id="listaParticipantes"></ul>
 
 <script type="module">
 
@@ -25,35 +28,64 @@ import { db } from "./firestore.js";
 
 import {
   collection,
-  addDoc
+  addDoc,
+  getDocs
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+async function cargarParticipantes() {
+
+  const lista = document.getElementById("listaParticipantes");
+
+  lista.innerHTML = "";
+
+  const querySnapshot =
+    await getDocs(collection(db, "participantes"));
+
+  querySnapshot.forEach((doc) => {
+
+    const datos = doc.data();
+
+    const li = document.createElement("li");
+
+    li.textContent =
+      datos.nombre + " | Pagado: " + datos.pagado;
+
+    lista.appendChild(li);
+
+  });
+
+}
 
 document.getElementById("guardar").addEventListener("click", async () => {
 
-  const nombre = document.getElementById("nombre").value;
-
-  document.getElementById("estado").textContent =
-    "Intentando guardar...";
+  const nombre =
+    document.getElementById("nombre").value;
 
   try {
 
-    const docRef = await addDoc(collection(db, "participantes"), {
+    await addDoc(collection(db, "participantes"), {
       nombre: nombre,
       puntos: 0,
       pagado: false
     });
 
     document.getElementById("estado").textContent =
-      "Guardado OK: " + docRef.id;
+      "Participante guardado correctamente";
+
+    document.getElementById("nombre").value = "";
+
+    cargarParticipantes();
 
   } catch (error) {
 
     document.getElementById("estado").textContent =
-      "ERROR: " + error.code + " - " + error.message;
+      "ERROR: " + error.message;
 
   }
 
 });
+
+cargarParticipantes();
 
 </script>
 
