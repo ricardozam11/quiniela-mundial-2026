@@ -1,11 +1,36 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>QUINIELA MUNDIAL 2026</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>QUINIELA MUNDIAL 2026</title>
 </head>
 <body>
-    <h1>QUINIELA MUNDIAL 2026</h1>
-    <p>Sitio en construcción.</p>
+
+<h1>QUINIELA MUNDIAL 2026</h1>
+
+<p>Proyecto conectado a Firebase.</p>
+
+<input type="text" id="nombre" placeholder="Nombre participante">
+
+<button id="guardar">
+Guardar Participante
+</button>
+
+<p id="estado"></p>
+
+<script type="module">
+
+import { db } from "./firestore.js";
+
+document.getElementById("guardar").addEventListener("click", async () => {
+
+  document.getElementById("estado").textContent =
+  "Firebase conectado correctamente.";
+
+});
+
+</script>
+
 </body>
 </html>
