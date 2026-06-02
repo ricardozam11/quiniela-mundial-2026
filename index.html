@@ -1,0 +1,1451 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Apuesta Mundial 2026 - Competencia entre Amigos</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="contenedor-principal">
+        
+        <h1>🏆 APUESTA MUNDIAL 2026</h1>
+
+        <div class="contador-recaudado">
+            <h3>Dinero Total Recolectado</h3>
+            <span>₡ 0,00</span>
+            <small>Se actualiza automáticamente según participantes activos</small>
+        </div>
+
+        <section class="premios-box">
+            <h2>Distribución de Premios</h2>
+            <ul>
+                <li><strong>60%</strong> → Participante que acierte al <strong>campeón del mundo</strong></li>
+                <li><strong>20%</strong> → Participante con <strong>mayor puntaje</strong> en marcadores de fase de grupos</li>
+                <li><strong>10%</strong> → Participante que acierte la <strong>mayor cantidad de equipos</strong> clasificados a dieciseisavos</li>
+                <li><strong>10%</strong> → Participante que acierte al <strong>goleador del torneo</strong></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>Lista de Participantes</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 22%;">Activado</th>
+                        <th style="width: 78%;">Nombre del Participante</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td><input type="checkbox" class="check-activo" title="Marcar cuando pague la entrada"></td>
+                        <td>Participante 1</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="check-activo" title="Marcar cuando pague la entrada"></td>
+                        <td>Participante 2</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="check-activo" title="Marcar cuando pague la entrada"></td>
+                        <td>Participante 3</td>
+                    </tr>
+                    <tr>
+                        <td><input type="checkbox" class="check-activo" title="Marcar cuando pague la entrada"></td>
+                        <td>Participante 4</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Tabla de Posiciones</h2>
+            <p style="margin-bottom: 0.8rem; text-align: center;">
+                <strong>Puntuación:</strong> 3 pts por marcador exacto | 1 pt por resultado
+            </p>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 28%;">Posición</th>
+                        <th style="width: 47%;">Nombre</th>
+                        <th style="width: 25%;">Puntos</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Participante 1</td>
+                        <td><strong>0</strong></td>
+                    </tr>
+                    <tr>
+                        <td>2</td>
+                        <td>Participante 2</td>
+                        <td><strong>0</strong></td>
+                    </tr>
+                    <tr>
+                        <td>3</td>
+                        <td>Participante 3</td>
+                        <td><strong>0</strong></td>
+                    </tr>
+                    <tr>
+                        <td>4</td>
+                        <td>Participante 4</td>
+                        <td><strong>0</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Equipos Clasificados Acertados</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th style="width: 62%;">Nombre</th>
+                        <th style="width: 38%;">Acertados / 32</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Participante 1</td>
+                        <td>0 / 32</td>
+                    </tr>
+                    <tr>
+                        <td>Participante 2</td>
+                        <td>0 / 32</td>
+                    </tr>
+                    <tr>
+                        <td>Participante 3</td>
+                        <td>0 / 32</td>
+                    </tr>
+                    <tr>
+                        <td>Participante 4</td>
+                        <td>0 / 32</td>
+                    </tr>
+                </tbody>
+            </table>
+        </section>
+
+        <section>
+            <h2>Fase de Grupos - Oficial FIFA</h2>
+            <div class="grupos-contenedor">
+
+                <!-- GRUPO A -->
+                <div class="grupo">
+                    <div class="cabecera-grupo">GRUPO A</div>
+                    
+                    <div class="partido">
+                        <span class="info-fecha">11 Jun • 19:00 | Ciudad de México</span>
+                        <div class="datos-partido">
+                            🇲🇽 México
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Sudáfrica 🇿🇦
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">12 Jun • 14:00 | Los Ángeles</span>
+                        <div class="datos-partido">
+                            🇰🇷 Corea del Sur
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Rep. Checa 🇨🇿
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">18 Jun • 16:00 | Houston</span>
+                        <div class="datos-partido">
+                            🇲🇽 México
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Corea del Sur 🇰🇷
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">18 Jun • 19:00 | Guadalajara</span>
+                        <div class="datos-partido">
+                            🇨🇿 Rep. Checa
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Sudáfrica 🇿🇦
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">24 Jun • 21:00 | Cd. de México</span>
+                        <div class="datos-partido">
+                            🇨🇿 Rep. Checa
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            México 🇲🇽
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">24 Jun • 21:00 | San Francisco</span>
+                        <div class="datos-partido">
+                            🇿🇦 Sudáfrica
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Corea del Sur 🇰🇷
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRUPO B -->
+                <div class="grupo">
+                    <div class="cabecera-grupo">GRUPO B</div>
+                    
+                    <div class="partido">
+                        <span class="info-fecha">12 Jun • 17:00 | Toronto</span>
+                        <div class="datos-partido">
+                            🇨🇦 Canadá
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Bosnia 🇧🇦
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">12 Jun • 20:00 | Vancouver</span>
+                        <div class="datos-partido">
+                            🇶🇦 Catar
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Suiza 🇨🇭
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">19 Jun • 14:00 | Montreal</span>
+                        <div class="datos-partido">
+                            🇨🇦 Canadá
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Catar 🇶🇦
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">19 Jun • 17:00 | Boston</span>
+                        <div class="datos-partido">
+                            🇨🇭 Suiza
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Bosnia 🇧🇦
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">25 Jun • 19:00 | Toronto</span>
+                        <div class="datos-partido">
+                            🇨🇭 Suiza
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Canadá 🇨🇦
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">25 Jun • 19:00 | Nueva York</span>
+                        <div class="datos-partido">
+                            🇧🇦 Bosnia
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Catar 🇶🇦
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRUPO C -->
+                <div class="grupo">
+                    <div class="cabecera-grupo">GRUPO C</div>
+                    
+                    <div class="partido">
+                        <span class="info-fecha">13 Jun • 15:00 | Miami</span>
+                        <div class="datos-partido">
+                            🇧🇷 Brasil
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Marruecos 🇲🇦
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">13 Jun • 18:00 | Atlanta</span>
+                        <div class="datos-partido">
+                            🇭🇹 Haití
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Escocia 🏴󠁧󠁢󠁳󠁣󠁴󠁿
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">19 Jun • 19:00 | Dallas</span>
+                        <div class="datos-partido">
+                            🇧🇷 Brasil
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Haití 🇭🇹
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">20 Jun • 14:00 | Seattle</span>
+                        <div class="datos-partido">
+                            🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escocia
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Marruecos 🇲🇦
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">25 Jun • 21:00 | Los Ángeles</span>
+                        <div class="datos-partido">
+                            🏴󠁧󠁢󠁳󠁣󠁴󠁿 Escocia
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Brasil 🇧🇷
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">25 Jun • 21:00 | Houston</span>
+                        <div class="datos-partido">
+                            🇲🇦 Marruecos
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Haití 🇭🇹
+                        </div>
+                    </div>
+                </div>
+                <!-- GRUPO D -->
+                <div class="grupo">
+                    <div class="cabecera-grupo">GRUPO D</div>
+                    
+                    <div class="partido">
+                        <span class="info-fecha">13 Jun • 21:00 | Nueva York</span>
+                        <div class="datos-partido">
+                            🇫🇷 Francia
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Perú 🇵🇪
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">14 Jun • 16:00 | Toronto</span>
+                        <div class="datos-partido">
+                            🇹🇳 Túnez
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Arabia Saudita 🇸🇦
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">20 Jun • 17:00 | Boston</span>
+                        <div class="datos-partido">
+                            🇫🇷 Francia
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Túnez 🇹🇳
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">20 Jun • 20:00 | Vancouver</span>
+                        <div class="datos-partido">
+                            🇸🇦 Arabia Saudita
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Perú 🇵🇪
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">26 Jun • 19:00 | Nueva York</span>
+                        <div class="datos-partido">
+                            🇸🇦 Arabia Saudita
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Francia 🇫🇷
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">26 Jun • 19:00 | Toronto</span>
+                        <div class="datos-partido">
+                            🇵🇪 Perú
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Túnez 🇹🇳
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRUPO E -->
+                <div class="grupo">
+                    <div class="cabecera-grupo">GRUPO E</div>
+                    
+                    <div class="partido">
+                        <span class="info-fecha">14 Jun • 19:00 | Guadalajara</span>
+                        <div class="datos-partido">
+                            🇪🇸 España
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Costa Rica 🇨🇷
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">15 Jun • 14:00 | Houston</span>
+                        <div class="datos-partido">
+                            🇮🇷 Irán
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Australia 🇦🇺
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">21 Jun • 16:00 | Ciudad de México</span>
+                        <div class="datos-partido">
+                            🇪🇸 España
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Irán 🇮🇷
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">21 Jun • 19:00 | Los Ángeles</span>
+                        <div class="datos-partido">
+                            🇦🇺 Australia
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Costa Rica 🇨🇷
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">27 Jun • 21:00 | Guadalajara</span>
+                        <div class="datos-partido">
+                            🇦🇺 Australia
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            España 🇪🇸
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">27 Jun • 21:00 | Houston</span>
+                        <div class="datos-partido">
+                            🇨🇷 Costa Rica
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Irán 🇮🇷
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRUPO F -->
+                <div class="grupo">
+                    <div class="cabecera-grupo">GRUPO F</div>
+                    
+                    <div class="partido">
+                        <span class="info-fecha">15 Jun • 17:00 | Seattle</span>
+                        <div class="datos-partido">
+                            🇦🇷 Argentina
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Colombia 🇨🇴
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">15 Jun • 20:00 | Atlanta</span>
+                        <div class="datos-partido">
+                            🇪🇬 Egipto
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Nueva Zelanda 🇳🇿
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">22 Jun • 14:00 | Miami</span>
+                        <div class="datos-partido">
+                            🇦🇷 Argentina
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Egipto 🇪🇬
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">22 Jun • 17:00 | San Francisco</span>
+                        <div class="datos-partido">
+                            🇳🇿 Nueva Zelanda
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Colombia 🇨🇴
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">28 Jun • 19:00 | Seattle</span>
+                        <div class="datos-partido">
+                            🇳🇿 Nueva Zelanda
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Argentina 🇦🇷
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">28 Jun • 19:00 | Atlanta</span>
+                        <div class="datos-partido">
+                            🇨🇴 Colombia
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Egipto 🇪🇬
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRUPO G -->
+                <div class="grupo">
+                    <div class="cabecera-grupo">GRUPO G</div>
+                    
+                    <div class="partido">
+                        <span class="info-fecha">16 Jun • 15:00 | Vancouver</span>
+                        <div class="datos-partido">
+                            🇩🇪 Alemania
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Serbia 🇷🇸
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">16 Jun • 18:00 | Montreal</span>
+                        <div class="datos-partido">
+                            🇲🇱 Malí
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Japón 🇯🇵
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">22 Jun • 20:00 | Toronto</span>
+                        <div class="datos-partido">
+                            🇩🇪 Alemania
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Malí 🇲🇱
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">23 Jun • 14:00 | Boston</span>
+                        <div class="datos-partido">
+                            🇯🇵 Japón
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Serbia 🇷🇸
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">29 Jun • 21:00 | Vancouver</span>
+                        <div class="datos-partido">
+                            🇯🇵 Japón
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Alemania 🇩🇪
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">29 Jun • 21:00 | Montreal</span>
+                        <div class="datos-partido">
+                            🇷🇸 Serbia
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Malí 🇲🇱
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRUPO H -->
+                <div class="grupo">
+                    <div class="cabecera-grupo">GRUPO H</div>
+                    
+                    <div class="partido">
+                        <span class="info-fecha">16 Jun • 21:00 | Dallas</span>
+                        <div class="datos-partido">
+                            🇧🇪 Bélgica
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Paraguay 🇵🇾
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">17 Jun • 16:00 | San Francisco</span>
+                        <div class="datos-partido">
+                            🇨🇲 Camerún
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Ecuador 🇪🇨
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">23 Jun • 17:00 | Houston</span>
+                        <div class="datos-partido">
+                            🇧🇪 Bélgica
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Camerún 🇨🇲
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">23 Jun • 20:00 | Los Ángeles</span>
+                        <div class="datos-partido">
+                            🇪🇨 Ecuador
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Paraguay 🇵🇾
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">30 Jun • 19:00 | Dallas</span>
+                        <div class="datos-partido">
+                            🇪🇨 Ecuador
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Bélgica 🇧🇪
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">30 Jun • 19:00 | San Francisco</span>
+                        <div class="datos-partido">
+                            🇵🇾 Paraguay
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Camerún 🇨🇲
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRUPO I -->
+                <div class="grupo">
+                    <div class="cabecera-grupo">GRUPO I</div>
+                    
+                    <div class="partido">
+                        <span class="info-fecha">17 Jun • 19:00 | Ciudad de México</span>
+                        <div class="datos-partido">
+                            🇵🇹 Portugal
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Bolivia 🇧🇴
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">18 Jun • 14:00 | Nueva York</span>
+                        <div class="datos-partido">
+                            🇬🇭 Ghana
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Venezuela 🇻🇪
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">24 Jun • 17:00 | Miami</span>
+                        <div class="datos-partido">
+                            🇵🇹 Portugal
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Ghana 🇬🇭
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">24 Jun • 20:00 | Atlanta</span>
+                        <div class="datos-partido">
+                            🇻🇪 Venezuela
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Bolivia 🇧🇴
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">01 Jul • 21:00 | Ciudad de México</span>
+                        <div class="datos-partido">
+                            🇻🇪 Venezuela
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Portugal 🇵🇹
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">01 Jul • 21:00 | Nueva York</span>
+                        <div class="datos-partido">
+                            🇧🇴 Bolivia
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Ghana 🇬🇭
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRUPO J -->
+                <div class="grupo">
+                    <div class="cabecera-grupo">GRUPO J</div>
+                    
+                    <div class="partido">
+                        <span class="info-fecha">18 Jun • 21:00 | Boston</span>
+                        <div class="datos-partido">
+                            🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Ucrania 🇺🇦
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">19 Jun • 16:00 | Vancouver</span>
+                        <div class="datos-partido">
+                            🇮🇶 Irak
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Dinamarca 🇩🇰
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">25 Jun • 14:00 | Toronto</span>
+                        <div class="datos-partido">
+                            🏴󠁧󠁢󠁥󠁮󠁧󠁿 Inglaterra
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Irak 🇮🇶
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">25 Jun • 17:00 | Montreal</span>
+                        <div class="datos-partido">
+                            🇩🇰 Dinamarca
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Ucrania 🇺🇦
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">02 Jul • 19:00 | Boston</span>
+                        <div class="datos-partido">
+                            🇩🇰 Dinamarca
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Inglaterra 🏴󠁧󠁢󠁥󠁮󠁧󠁿
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">02 Jul • 19:00 | Vancouver</span>
+                        <div class="datos-partido">
+                            🇺🇦 Ucrania
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Irak 🇮🇶
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRUPO K -->
+                <div class="grupo">
+                    <div class="cabecera-grupo">GRUPO K</div>
+                    
+                    <div class="partido">
+                        <span class="info-fecha">20 Jun • 21:00 | Guadalajara</span>
+                        <div class="datos-partido">
+                            🇳🇱 Países Bajos
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Chile 🇨🇱
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">21 Jun • 14:00 | Dallas</span>
+                        <div class="datos-partido">
+                            🇵🇱 Polonia
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Argelia 🇩🇿
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">27 Jun • 14:00 | San Francisco</span>
+                        <div class="datos-partido">
+                            🇳🇱 Países Bajos
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Polonia 🇵🇱
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">27 Jun • 17:00 | Seattle</span>
+                        <div class="datos-partido">
+                            🇩🇿 Argelia
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Chile 🇨🇱
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">03 Jul • 21:00 | Guadalajara</span>
+                        <div class="datos-partido">
+                            🇩🇿 Argelia
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Países Bajos 🇳🇱
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">03 Jul • 21:00 | Dallas</span>
+                        <div class="datos-partido">
+                            🇨🇱 Chile
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Polonia 🇵🇱
+                        </div>
+                    </div>
+                </div>
+
+                <!-- GRUPO L -->
+                <div class="grupo">
+                    <div class="cabecera-grupo">GRUPO L</div>
+                    
+                    <div class="partido">
+                        <span class="info-fecha">21 Jun • 21:00 | Miami</span>
+                        <div class="datos-partido">
+                            🇺🇸 Estados Unidos
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Noruega 🇳🇴
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">22 Jun • 17:00 | Atlanta</span>
+                        <div class="datos-partido">
+                            🇹🇷 Turquía
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Guinea 🇬🇳
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">28 Jun • 14:00 | Los Ángeles</span>
+                        <div class="datos-partido">
+                            🇺🇸 Estados Unidos
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Turquía 🇹🇷
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">28 Jun • 17:00 | Houston</span>
+                        <div class="datos-partido">
+                            🇬🇳 Guinea
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Noruega 🇳🇴
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">04 Jul • 19:00 | Miami</span>
+                        <div class="datos-partido">
+                            🇬🇳 Guinea
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            Estados Unidos 🇺🇸
+                        </div>
+                    </div>
+
+                    <div class="partido">
+                        <span class="info-fecha">04 Jul • 19:00 | Atlanta</span>
+                        <div class="datos-partido">
+                            🇳🇴 Noruega
+                            <input type="number" min="0" max="15" class="input-marcador">
+                            <span class="separador">-</span>
+                            <input type="number" min="0" max="15" class="input-marcador"section>
+                            Turquía 🇹🇷
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        
+        <!-- ==============================================
+             FASE DE DIECISEISAVOS DE FINAL
+        ============================================== -->
+        <section class="fase-eliminatoria">
+            <h2>Fase de Dieciseisavos de Final</h2>
+            <p style="text-align: center; margin-bottom: 1.2rem; opacity: 0.9;">
+                ✅ Clasifican: 1º y 2º de cada grupo + los 8 mejores 3ros lugares<br>
+                <strong>Total: 32 equipos</strong>
+            </p>
+
+            
+                <!-- Partido 1 -->
+                <div class="partido-eliminatorio">
+                    <span class="info-fecha">05 Jul • 16:00 | Ciudad de México</span>
+                    <div class="datos-partido">
+                        🇦 1º Grupo A
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        <span class="separador">-</span>
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        🇨 2º Grupo C
+                    </div>
+                </div>
+
+                <!-- Partido 2 -->
+                <div class="partido-eliminatorio">
+                    <span class="info-fecha">05 Jul • 19:00 | Los Ángeles</span>
+                    <div class="datos-partido">
+                        🇩 1º Grupo D
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        <span class="separador">-</span>
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        🇧 2º Grupo B
+                    </div>
+                </div>
+
+                <!-- Partido 3 -->
+                <div class="partido-eliminatorio">
+                    <span class="info-fecha">06 Jul • 16:00 | Toronto</span>
+                    <div class="datos-partido">
+                        🇪 1º Grupo E
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        <span class="separador">-</span>
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        🇬 2º Grupo G
+                    </div>
+                </div>
+
+                <!-- Partido 4 -->
+                <div class="partido-eliminatorio">
+                    <span class="info-fecha">06 Jul • 19:00 | Vancouver</span>
+                    <div class="datos-partido">
+                        🇭 1º Grupo H
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        <span class="separador">-</span>
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        🇫 2º Grupo F
+                    </div>
+                </div>
+
+                <!-- Partido 5 -->
+                <div class="partido-eliminatorio">
+                    <span class="info-fecha">07 Jul • 16:00 | Dallas</span>
+                    <div class="datos-partido">
+                        🇮 1º Grupo I
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        <span class="separador">-</span>
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        🇰 2º Grupo K
+                    </div>
+                </div>
+
+                <!-- Partido 6 -->
+                <div class="partido-eliminatorio">
+                    <span class="info-fecha">07 Jul • 19:00 | Houston</span>
+                    <div class="datos-partido">
+                        🇱 1º Grupo L
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        <span class="separador">-</span>
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        🇯 2º Grupo J
+                    </div>
+                </div>
+
+                <!-- Partido 7 -->
+                <div class="partido-eliminatorio">
+                    <span class="info-fecha">08 Jul • 16:00 | Nueva York</span>
+                    <div class="datos-partido">
+                        🇧 1º Grupo B
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        <span class="separador">-</span>
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        🇩 2º Grupo D
+                    </div>
+                </div>
+
+                <!-- Partido 8 -->
+                <div class="partido-eliminatorio">
+                    <span class="info-fecha">08 Jul • 19:00 | Atlanta</span>
+                    <div class="datos-partido">
+                        🇨 1º Grupo C
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        <span class="separador">-</span>
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        🇦 2º Grupo A
+                    </div>
+                </div>
+
+                <!-- Partido 9 -->
+                <div class="partido-eliminatorio">
+                    <span class="info-fecha">09 Jul • 16:00 | San Francisco</span>
+                    <div class="datos-partido">
+                        🇫 1º Grupo F
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        <span class="separador">-</span>
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        🇭 2º Grupo H
+                    </div>
+                </div>
+
+                <!-- Partido 10 -->
+                <div class="partido-eliminatorio">
+                    <span class="info-fecha">09 Jul • 19:00 | Seattle</span>
+                    <div class="datos-partido">
+                        🇬 1º Grupo G
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        <span class="separador">-</span>
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        🇪 2º Grupo E
+                    </div>
+                </div>
+
+                <!-- Partido 11 -->
+                <div class="partido-eliminatorio">
+                    <span class="info-fecha">10 Jul • 16:00 | Miami</span>
+                    <div class="datos-partido">
+                        🇯 1º Grupo J
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        <span class="separador">-</span>
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        🇱 2º Grupo L
+                    </div>
+                </div>
+
+                <!-- Partido 12 -->
+                <div class="partido-eliminatorio">
+                    <span class="info-fecha">10 Jul • 19:00 | Boston</span>
+                    <div class="datos-partido">
+                        🇰 1º Grupo K
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        <span class="separador">-</span>
+                        <input type="number" min="0" max="15" class="input-marcador">
+                        🇮 2º Grupo I
+                    </div>
+                </div>
+
+            <!-- Partido 13 - 3er lugar -->
+<div class="partido-eliminatorio">
+    <span class="info-fecha">11 Jul • 16:00 | Guadalajara</span>
+    <div class="datos-partido">
+        🥉 1º Mejor 3º
+        <input type="number" min="0" max="15" class="input-marcador">
+        <span class="separador">-</span>
+        <input type="number" min="0" max="15" class="input-marcador">
+        🥉 8º Mejor 3º
+    </div>
+</div>
+
+<!-- Partido 14 - 3er lugar -->
+<div class="partido-eliminatorio">
+    <span class="info-fecha">11 Jul • 19:00 | Monterrey</span>
+    <div class="datos-partido">
+        🥉 2º Mejor 3º
+        <input type="number" min="0" max="15" class="input-marcador">
+        <span class="separador">-</span>
+        <input type="number" min="0" max="15" class="input-marcador">
+        🥉 7º Mejor 3º
+    </div>
+</div>
+
+<!-- Partido 15 - 3er lugar -->
+<div class="partido-eliminatorio">
+    <span class="info-fecha">12 Jul • 16:00 | Austin</span>
+    <div class="datos-partido">
+        🥉 3º Mejor 3º
+        <input type="number" min="0" max="15" class="input-marcador">
+        <span class="separador">-</span>
+        <input type="number" min="0" max="15" class="input-marcador">
+        🥉 6º Mejor 3º
+    </div>
+</div>
+
+<!-- Partido 16 - 3er lugar -->
+<div class="partido-eliminatorio">
+    <span class="info-fecha">12 Jul • 19:00 | Kansas City</span>
+    <div class="datos-partido">
+        🥉 4º Mejor 3º
+        <input type="number" min="0" max="15" class="input-marcador">
+        <span class="separador">-</span>
+        <input type="number" min="0" max="15" class="input-marcador">
+        🥉 5º Mejor 3º
+    </div>
+</div>
+   
+        <!-- ==============================================
+             FASE DE OCTAVOS DE FINAL
+        ============================================== -->
+        <section class="fase-eliminatoria">
+            <h2>Octavos de Final</h2>
+            <p style="text-align: center; margin-bottom: 1.2rem; opacity: 0.9;">
+                ✅ Clasifican los ganadores de los 16 partidos de Dieciseisavos<br>
+                <strong>Total: 16 equipos</strong>
+            </p>
+
+            <!-- Partido 1 -->
+            <div class="partido-eliminatorio">
+                <span class="info-fecha">13 Jul • 16:00 | Guadalajara</span>
+                <div class="datos-partido">
+                    Ganador P1
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    <span class="separador">-</span>
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    Ganador P2
+                </div>
+            </div>
+
+            <!-- Partido 2 -->
+            <div class="partido-eliminatorio">
+                <span class="info-fecha">13 Jul • 19:00 | Monterrey</span>
+                <div class="datos-partido">
+                    Ganador P3
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    <span class="separador">-</span>
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    Ganador P4
+                </div>
+            </div>
+
+            <!-- Partido 3 -->
+            <div class="partido-eliminatorio">
+                <span class="info-fecha">14 Jul • 16:00 | Austin</span>
+                <div class="datos-partido">
+                    Ganador P5
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    <span class="separador">-</span>
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    Ganador P6
+                </div>
+            </div>
+
+            <!-- Partido 4 -->
+            <div class="partido-eliminatorio">
+                <span class="info-fecha">14 Jul • 19:00 | Kansas City</span>
+                <div class="datos-partido">
+                    Ganador P7
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    <span class="separador">-</span>
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    Ganador P8
+                </div>
+            </div>
+
+            <!-- Partido 5 -->
+            <div class="partido-eliminatorio">
+                <span class="info-fecha">15 Jul • 16:00 | San Francisco</span>
+                <div class="datos-partido">
+                    Ganador P9
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    <span class="separador">-</span>
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    Ganador P10
+                </div>
+            </div>
+
+            <!-- Partido 6 -->
+            <div class="partido-eliminatorio">
+                <span class="info-fecha">15 Jul • 19:00 | Seattle</span>
+                <div class="datos-partido">
+                    Ganador P11
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    <span class="separador">-</span>
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    Ganador P12
+                </div>
+            </div>
+
+            <!-- Partido 7 -->
+            <div class="partido-eliminatorio">
+                <span class="info-fecha">16 Jul • 16:00 | Miami</span>
+                <div class="datos-partido">
+                    Ganador P13
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    <span class="separador">-</span>
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    Ganador P14
+                </div>
+            </div>
+
+            <!-- Partido 8 -->
+            <div class="partido-eliminatorio">
+                <span class="info-fecha">16 Jul • 19:00 | Boston</span>
+                <div class="datos-partido">
+                    Ganador P15
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    <span class="separador">-</span>
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    Ganador P16
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             CUARTOS DE FINAL
+        ============================================== -->
+        <section class="fase-eliminatoria">
+            <h2>Cuartos de Final</h2>
+            <p style="text-align: center; margin-bottom: 1.2rem; opacity: 0.9;">
+                ✅ Clasifican los ganadores de los 8 partidos de Octavos<br>
+                <strong>Total: 8 equipos</strong>
+            </p>
+
+            <!-- Partido 1 -->
+            <div class="partido-eliminatorio">
+                <span class="info-fecha">19 Jul • 16:00 | Ciudad de México</span>
+                <div class="datos-partido">
+                    Ganador OF1
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    <span class="separador">-</span>
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    Ganador OF2
+                </div>
+            </div>
+
+            <!-- Partido 2 -->
+            <div class="partido-eliminatorio">
+                <span class="info-fecha">19 Jul • 19:00 | Los Ángeles</span>
+                <div class="datos-partido">
+                    Ganador OF3
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    <span class="separador">-</span>
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    Ganador OF4
+                </div>
+            </div>
+
+            <!-- Partido 3 -->
+            <div class="partido-eliminatorio">
+                <span class="info-fecha">20 Jul • 16:00 | Toronto</span>
+                <div class="datos-partido">
+                    Ganador OF5
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    <span class="separador">-</span>
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    Ganador OF6
+                </div>
+            </div>
+
+            <!-- Partido 4 -->
+            <div class="partido-eliminatorio">
+                <span class="info-fecha">20 Jul • 19:00 | Vancouver</span>
+                <div class="datos-partido">
+                    Ganador OF7
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    <span class="separador">-</span>
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    Ganador OF8
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             SEMIFINALES
+        ============================================== -->
+        <section class="fase-eliminatoria">
+            <h2>Semifinales</h2>
+            <p style="text-align: center; margin-bottom: 1.2rem; opacity: 0.9;">
+                ✅ Clasifican los ganadores de los 4 partidos de Cuartos<br>
+                <strong>Total: 4 equipos</strong>
+            </p>
+
+            <!-- Semifinal 1 -->
+            <div class="partido-eliminatorio">
+                <span class="info-fecha">23 Jul • 19:00 | Dallas</span>
+                <div class="datos-partido">
+                    Ganador CF1
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    <span class="separador">-</span>
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    Ganador CF2
+                </div>
+            </div>
+
+            <!-- Semifinal 2 -->
+            <div class="partido-eliminatorio">
+                <span class="info-fecha">24 Jul • 19:00 | Houston</span>
+                <div class="datos-partido">
+                    Ganador CF3
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    <span class="separador">-</span>
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    Ganador CF4
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             3º PUESTO Y FINAL
+        ============================================== -->
+        <section class="fase-eliminatoria">
+            <h2>Definición Final</h2>
+            <p style="text-align: center; margin-bottom: 1.2rem; opacity: 0.9;">
+                ✅ Partido por el tercer puesto y la Gran Final<br>
+                <strong>Últimos 2 partidos del torneo</strong>
+            </p>
+
+            <!-- Partido por el 3º Puesto -->
+            <div class="partido-eliminatorio">
+                <span class="info-fecha">27 Jul • 16:00 | Nueva York</span>
+                <div class="datos-partido">
+                    Perdedor SF1
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    <span class="separador">-</span>
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    Perdedor SF2
+                </div>
+            </div>
+
+            <!-- Gran Final -->
+            <div class="partido-eliminatorio" style="border: 2px solid #ffd700;">
+                <span class="info-fecha" style="font-weight: bold; color: #ffd700;">28 Jul • 19:00 | Estadio Azteca - Ciudad de México</span>
+                <div class="datos-partido" style="font-weight: bold;">
+                    Ganador SF1
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    <span class="separador">-</span>
+                    <input type="number" min="0" max="15" class="input-marcador">
+                    Ganador SF2
+                </div>
+            </div>
+        </section>
+
+        <!-- ==============================================
+             OTRAS APUESTAS
+        ============================================== -->
+        <section class="fase-eliminatoria">
+            <h2>Otras Apuestas del Torneo</h2>
+            
+            <div class="partido-eliminatorio">
+                <span class="info-fecha">🏆 Campeón del Mundo</span>
+                <div class="datos-partido" style="justify-content: space-around;">
+                    <span>Equipo elegido:</span>
+                    <input type="text" placeholder="Escribe tu campeón" style="width: 60%; padding: 0.3rem; border-radius: 4px; border: none; text-align: center;">
+                </div>
+            </div>
+
+            <div class="partido-eliminatorio">
+                <span class="info-fecha">⚽ Goleador del Torneo</span>
+                <div class="datos-partido" style="justify-content: space-around;">
+                    <span>Jugador elegido:</span>
+                    <input type="text" placeholder="Escribe el nombre del jugador" style="width: 60%; padding: 0.3rem; border-radius: 4px; border: none; text-align: center;">
+                </div>
+            </div>
+        </section>
+
+    </div>
+</body>
+</html>
