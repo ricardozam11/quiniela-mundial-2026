@@ -36,41 +36,8 @@
                         <th style="width: 78%;">Nombre del Participante</th>
                     </tr>
                 </thead>
-                <tbody>
-                    <tr>
-                        <td><input type="checkbox" class="check-activo" title="Marcar cuando pague la entrada"></td>
-                        <td>Participante 1</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="check-activo" title="Marcar cuando pague la entrada"></td>
-                        <td>Participante 2</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="check-activo" title="Marcar cuando pague la entrada"></td>
-                        <td>Participante 3</td>
-                    </tr>
-                    <tr>
-                        <td><input type="checkbox" class="check-activo" title="Marcar cuando pague la entrada"></td>
-                        <td>Participante 4</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
-
-        <section>
-            <h2>Tabla de Posiciones</h2>
-            <p style="margin-bottom: 0.8rem; text-align: center;">
-                <strong>Puntuación:</strong> 3 pts por marcador exacto | 1 pt por resultado
-            </p>
-            <table>
-                <thead>
-                    <tr>
-                        <th style="width: 28%;">Posición</th>
-                        <th style="width: 47%;">Nombre</th>
-                        <th style="width: 25%;">Puntos</th>
-                    </tr>
-                </thead>
-                <tbody>
+                <tbody id="tablaParticipantes">
+</tbody>
                     <tr>
                         <td>1</td>
                         <td>Participante 1</td>
@@ -1460,14 +1427,24 @@ async function cargarEstadisticas() {
 alert("Firebase conectado");
   let total = 0;
   let pagados = 0;
+const tabla =
+  document.getElementById("tablaParticipantes");
 
+tabla.innerHTML = "";
   const querySnapshot =
     await getDocs(collection(db, "participantes"));
 
   querySnapshot.forEach((doc) => {
 
     const datos = doc.data();
+const fila = document.createElement("tr");
 
+fila.innerHTML = `
+  <td>${datos.pagado ? "✅" : "❌"}</td>
+  <td>${datos.nombre}</td>
+`;
+
+tabla.appendChild(fila);
     total++;
 
     if (datos.pagado) {
