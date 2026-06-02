@@ -20,40 +20,9 @@ Guardar Participante
 <p id="estado"></p>
 
 <script type="module">
-import { db } from "./firestore.js";
-
-import { db } from "./firestore.js";
-
-import {
-  collection,
-  addDoc
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
-
-document.getElementById("guardar").addEventListener("click", async () => {
-
-  const nombre = document.getElementById("nombre").value;
-
-  try {
-
-    await addDoc(collection(db, "participantes"), {
-      nombre: nombre,
-      puntos: 0,
-      pagado: false,
-      fecha: new Date().toISOString()
-    });
-
-    document.getElementById("estado").textContent =
-      "Participante guardado correctamente";
-
-  } catch (error) {
-
-    document.getElementById("estado").textContent =
-      "Error: " + error.message;
-
-  }
-
-});
-
+document.getElementById("guardar").addEventListener("click", () => {
+  document.getElementById("estado").textContent =
+    "El botón funciona";
 });
 
 
