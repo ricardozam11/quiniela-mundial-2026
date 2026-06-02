@@ -1564,7 +1564,100 @@ console.log("Recaudado:", recaudado);
 }
 
 cargarEstadisticas();
+function calcularGrupoA() {
 
+  const equipos = {
+    "México": { pts: 0, gf: 0, gc: 0 },
+    "Sudáfrica": { pts: 0, gf: 0, gc: 0 },
+    "Corea del Sur": { pts: 0, gf: 0, gc: 0 },
+    "Rep. Checa": { pts: 0, gf: 0, gc: 0 }
+  };
+
+  const partidos =
+    document.querySelectorAll("#grupoA .partido");
+
+  partidos.forEach(partido => {
+
+    const nombres =
+      partido.querySelectorAll(".equipo");
+
+    const marcadores =
+      partido.querySelectorAll(".input-marcador");
+
+    const local = nombres[0].textContent.trim();
+    const visita = nombres[1].textContent.trim();
+
+    const golesLocal = parseInt(marcadores[0].value);
+    const golesVisita = parseInt(marcadores[1].value);
+
+    if (
+      isNaN(golesLocal) ||
+      isNaN(golesVisita)
+    ) return;
+
+    equipos[local].gf += golesLocal;
+    equipos[local].gc += golesVisita;
+
+    equipos[visita].gf += golesVisita;
+    equipos[visita].gc += golesLocal;
+
+    if (golesLocal > golesVisita) {
+      equipos[local].pts += 3;
+    } else if (golesLocal < golesVisita) {
+      equipos[visita].pts += 3;
+    } else {
+      equipos[local].pts += 1;
+      equipos[visita].pts += 1;
+    }
+
+  });
+
+  const tablaOrdenada =
+    Object.entries(equipos)
+      .sort((a, b) => {
+
+        if (b[1].pts !== a[1].pts)
+          return b[1].pts - a[1].pts;
+
+        const difA =
+          a[1].gf - a[1].gc;
+
+        const difB =
+          b[1].gf - b[1].gc;
+
+        return difB - difA;
+
+      });
+
+  const lista =
+    document.querySelector("#tablaA ol");
+
+  lista.innerHTML = "";
+
+  tablaOrdenada.forEach(([nombre, datos]) => {
+
+    const li =
+      document.createElement("li");
+
+    li.textContent =
+      `${nombre} - ${datos.pts} pts`;
+
+    lista.appendChild(li);
+
+  });
+
+}
+
+document
+  .querySelectorAll("#grupoA .input-marcador")
+  .forEach(input => {
+
+    input.addEventListener(
+      "input",
+      calcularGrupoA
+    );
+
+  });
 </script>
 </body>
 </html>
