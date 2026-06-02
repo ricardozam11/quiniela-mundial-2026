@@ -1447,5 +1447,43 @@
         </section>
 
     </div>
+    <script type="module">
+
+import { db } from "./firestore.js";
+
+import {
+  collection,
+  getDocs
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+async function cargarEstadisticas() {
+
+  let total = 0;
+  let pagados = 0;
+
+  const querySnapshot =
+    await getDocs(collection(db, "participantes"));
+
+  querySnapshot.forEach((doc) => {
+
+    const datos = doc.data();
+
+    total++;
+
+    if (datos.pagado) {
+      pagados++;
+    }
+
+  });
+
+  console.log("Participantes:", total);
+  console.log("Pagados:", pagados);
+  console.log("Recaudado:", pagados * 10000);
+
+}
+
+cargarEstadisticas();
+
+</script>
 </body>
 </html>
