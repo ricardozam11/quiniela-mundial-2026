@@ -42,18 +42,22 @@ async function cargarParticipantes() {
   const lista = document.getElementById("listaParticipantes");
 
   lista.innerHTML = "";
-let total = 0;
-let pagados = 0;
+
+  let total = 0;
+  let pagados = 0;
+
   const querySnapshot =
     await getDocs(collection(db, "participantes"));
 
   querySnapshot.forEach((doc) => {
-total++;
 
-if (datos.pagado) {
-  pagados++;
-}
     const datos = doc.data();
+
+    total++;
+
+    if (datos.pagado) {
+      pagados++;
+    }
 
     const li = document.createElement("li");
 
@@ -64,12 +68,26 @@ if (datos.pagado) {
 
   });
 
+  document.getElementById("totalParticipantes").textContent = total;
+  document.getElementById("totalPagados").textContent = pagados;
+  document.getElementById("totalPendientes").textContent =
+    total - pagados;
+
+  document.getElementById("recaudado").textContent =
+    (pagados * 10000).toLocaleString();
+
 }
 
 document.getElementById("guardar").addEventListener("click", async () => {
 
   const nombre =
-    document.getElementById("nombre").value;
+    document.getElementById("nombre").value.trim();
+
+  if (!nombre) {
+    document.getElementById("estado").textContent =
+      "Ingrese un nombre";
+    return;
+  }
 
   try {
 
@@ -84,19 +102,13 @@ document.getElementById("guardar").addEventListener("click", async () => {
 
     document.getElementById("nombre").value = "";
 
-    cargarParticipantes();
+    await cargarParticipantes();
 
   } catch (error) {
 
     document.getElementById("estado").textContent =
       "ERROR: " + error.message;
-document.getElementById("totalParticipantes").textContent = total;
-document.getElementById("totalPagados").textContent = pagados;
-document.getElementById("totalPendientes").textContent =
-  total - pagados;
 
-document.getElementById("recaudado").textContent =
-  (pagados * 10000).toLocaleString();
   }
 
 });
