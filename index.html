@@ -63,34 +63,21 @@
         </section>
 
         <section>
-            <h2>Equipos Clasificados Acertados</h2>
-            <table>
-                <thead>
-                    <tr>
-                        <th style="width: 62%;">Nombre</th>
-                        <th style="width: 38%;">Acertados / 32</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Participante 1</td>
-                        <td>0 / 32</td>
-                    </tr>
-                    <tr>
-                        <td>Participante 2</td>
-                        <td>0 / 32</td>
-                    </tr>
-                    <tr>
-                        <td>Participante 3</td>
-                        <td>0 / 32</td>
-                    </tr>
-                    <tr>
-                        <td>Participante 4</td>
-                        <td>0 / 32</td>
-                    </tr>
-                </tbody>
-            </table>
-        </section>
+    <h2>Lista de Participantes</h2>
+
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 22%;">Activado</th>
+                <th style="width: 78%;">Nombre del Participante</th>
+            </tr>
+        </thead>
+
+        <tbody id="tablaParticipantes">
+        </tbody>
+
+    </table>
+</section>
 
         <section>
             <h2>Fase de Grupos - Oficial FIFA</h2>
@@ -1529,7 +1516,11 @@ async function cargarEstadisticas() {
 const tabla =
   document.getElementById("tablaParticipantes");
 
-tabla.innerHTML = "";
+console.log("tabla =", tabla);
+
+if (tabla) {
+  tabla.innerHTML = "";
+}
   const querySnapshot =
     await getDocs(collection(db, "participantes"));
 
@@ -1554,8 +1545,15 @@ tabla.appendChild(fila);
 
   const recaudado = pagados * 10000;
 
-document.getElementById("dineroRecaudado").textContent =
-  "₡ " + recaudado.toLocaleString("es-CR");
+const dinero =
+  document.getElementById("dineroRecaudado");
+
+console.log("dinero =", dinero);
+
+if (dinero) {
+  dinero.textContent =
+    "₡ " + recaudado.toLocaleString("es-CR");
+}
 
 console.log("Participantes:", total);
 console.log("Pagados:", pagados);
