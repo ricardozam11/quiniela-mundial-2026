@@ -1671,7 +1671,43 @@ function calcularGrupo(letra) {
   if (!lista) return;
 
   lista.innerHTML = "";
+const clasificados = [];
 
+tablaOrdenada.forEach(([nombre, datos], indice) => {
+
+  const li =
+    document.createElement("li");
+
+  li.textContent =
+    `${nombre} - ${datos.pts} pts`;
+
+  lista.appendChild(li);
+
+  if (indice < 2) {
+    clasificados.push(nombre);
+  }
+
+});
+
+if (clasificados.length >= 2) {
+
+  const primero =
+    document.getElementById(letra + "1");
+
+  const segundo =
+    document.getElementById(letra + "2");
+
+  if (primero) {
+    primero.textContent =
+      clasificados[0];
+  }
+
+  if (segundo) {
+    segundo.textContent =
+      clasificados[1];
+  }
+
+}
   tablaOrdenada.forEach(([nombre, datos]) => {
 
     const li =
