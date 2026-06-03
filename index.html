@@ -2500,11 +2500,16 @@ if (
 ) return;
 
       selector.options[1].text =
-        equipos[0].textContent;
+  equipos[0].textContent;
 
-      selector.options[2].text =
-        equipos[1].textContent;
+selector.options[2].text =
+  equipos[1].textContent;
 
+alert(
+  selector.options[1].text +
+  " | " +
+  selector.options[2].text
+);
     });
 
 }
