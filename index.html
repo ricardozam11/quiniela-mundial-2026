@@ -1851,7 +1851,7 @@ function actualizarMejoresTerceros() {
 
 }
         function actualizarGanadores() {
-alert("actualizarGanadores");
+
   for (let i = 1; i <= 16; i++) {
 
     const partido =
@@ -1899,26 +1899,16 @@ alert("actualizarGanadores");
     "G" + i
   );
 
-if (!destino) {
-  alert("No encuentro G" + i);
-  continue;
-}
+
 
 if (ganador !== "") {
 
-  alert(
-    "G" + i +
-    " = " + ganador
-  );
+  
 
   destino.textContent =
     ganador;
 
-  alert(
-    "Ahora G" + i +
-    " contiene: " +
-    destino.textContent
-  );
+  
 
 }
 
@@ -1960,7 +1950,7 @@ document
   );
 
 });
-console.log("Sistema de grupos cargado");
+
 </script>
 </body>
 </html>
