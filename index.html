@@ -1785,11 +1785,29 @@ if (
   partidosCompletos === partidos.length
 ) {
 
-  const primero =
-    document.getElementById(letra + "1");
+  let idPrimero = letra + "1";
+let idSegundo = letra + "2";
 
-  const segundo =
-    document.getElementById(letra + "2");
+if (letra === "G") {
+  idPrimero = "Gr1";
+  idSegundo = "Gr2";
+}
+
+const primero =
+  document.getElementById(idPrimero);
+
+const segundo =
+  document.getElementById(idSegundo);
+
+if (primero) {
+  primero.textContent =
+    `${banderas[clasificados[0]] || ""} ${clasificados[0]}`;
+}
+
+if (segundo) {
+  segundo.textContent =
+    `${banderas[clasificados[1]] || ""} ${clasificados[1]}`;
+}
 
   if (primero) {
     primero.textContent =
