@@ -1851,7 +1851,7 @@ function actualizarMejoresTerceros() {
 
 }
         function actualizarGanadores() {
-
+alert("actualizarGanadores");
   for (let i = 1; i <= 16; i++) {
 
     const partido =
@@ -1860,7 +1860,8 @@ function actualizarMejoresTerceros() {
     if (!partido) continue;
 
     const equipos =
-      partido.querySelectorAll("span");
+  partido.querySelector(".datos-partido")
+         .querySelectorAll("span[id]");
 
     const marcadores =
       partido.querySelectorAll(".input-marcador");
