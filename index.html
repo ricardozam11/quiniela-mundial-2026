@@ -1895,17 +1895,25 @@ alert("actualizarGanadores");
     }
 
     const destino =
-      document.getElementById(
-        "G" + i
-      );
+  document.getElementById(
+    "G" + i
+  );
 
-    if (
-      destino &&
-      ganador !== ""
-    ) {
-      destino.textContent =
-        ganador;
-    }
+if (!destino) {
+  alert("No encuentro G" + i);
+  continue;
+}
+
+if (ganador !== "") {
+
+  alert(
+    "G" + i +
+    " = " + ganador
+  );
+
+  destino.textContent =
+    ganador;
+}
 
   }
 
