@@ -2494,10 +2494,24 @@ function actualizarGanadoresOF() {
         equipos.length
       );
 
-      if (
-        equipos.length < 2 ||
-        !selector
-      ) return;
+      if (!selector) {
+
+  alert("SIN SELECTOR");
+
+  return;
+
+}
+
+if (equipos.length < 2) {
+
+  alert(
+    "Equipos encontrados: " +
+    equipos.length
+  );
+
+  return;
+
+}
 
       alert(
         "Opciones: " +
