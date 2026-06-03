@@ -1915,10 +1915,10 @@ if (ganador !== "") {
   }
 
 }
-        function actualizarGanadoresOF() {
+        
 function actualizarGanadoresOF() {
 
-  alert("actualizarGanadoresOF");
+  
 
   for (let i = 1; i <= 8; i++) {
   for (let i = 1; i <= 8; i++) {
@@ -1979,6 +1979,67 @@ function actualizarGanadoresOF() {
   }
 
 }
+} 
+  function actualizarGanadoresCF() {
+
+  for (let i = 1; i <= 4; i++) {
+
+    const partido =
+      document.getElementById("PC" + i);
+
+    if (!partido) continue;
+
+    const equipos =
+      partido.querySelector(".datos-partido")
+             .querySelectorAll("span[id]");
+
+    const marcadores =
+      partido.querySelectorAll(".input-marcador");
+
+    if (
+      equipos.length < 2 ||
+      marcadores.length < 2
+    ) continue;
+
+    const g1 =
+      parseInt(marcadores[0].value);
+
+    const g2 =
+      parseInt(marcadores[1].value);
+
+    if (
+      isNaN(g1) ||
+      isNaN(g2)
+    ) continue;
+
+    let ganador = "";
+
+    if (g1 > g2) {
+      ganador =
+        equipos[0].textContent;
+    }
+
+    if (g2 > g1) {
+      ganador =
+        equipos[1].textContent;
+    }
+
+    const destino =
+      document.getElementById(
+        "CF" + i
+      );
+
+    if (
+      destino &&
+      ganador !== ""
+    ) {
+      destino.textContent =
+        ganador;
+    }
+
+  }
+
+}      
 const grupos =
 [
   "A","B","C","D",
@@ -2033,6 +2094,21 @@ document
   );
 
 });
+      document
+.querySelectorAll(
+  '#PC1 .input-marcador, \
+   #PC2 .input-marcador, \
+   #PC3 .input-marcador, \
+   #PC4 .input-marcador'
+)
+.forEach(input => {
+
+  input.addEventListener(
+    "input",
+    actualizarGanadoresCF
+  );
+
+});  
 </script>
 </body>
 </html>
