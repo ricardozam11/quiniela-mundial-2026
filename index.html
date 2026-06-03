@@ -2479,16 +2479,18 @@ function actualizarGanadoresOF() {
     .querySelectorAll(".partido-eliminatorio")
     .forEach(partido => {
 
-      const equipos =
+    const equipos =
   partido.querySelectorAll(
     ".datos-partido span"
   );
-alert(
-  "Encontrados: " +
-  Array.from(equipos)
-    .map(e => e.textContent)
-    .join(" | ")
-);
+
+let texto = "";
+
+equipos.forEach((e, i) => {
+  texto += i + ": " + e.textContent + "\n";
+});
+
+alert(texto);
       const selector =
   partido.querySelector("select");
 
