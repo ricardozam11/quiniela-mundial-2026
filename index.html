@@ -2259,6 +2259,7 @@ destino.textContent = ganador;
 actualizarGanadoresOF();
 actualizarGanadoresCF();
 actualizarGanadoresSF();
+actualizarSelectoresEmpate();            
 }
         
 function actualizarGanadoresOF() {
@@ -2469,6 +2470,36 @@ function actualizarGanadoresOF() {
   }
 
 }    
+ function actualizarSelectoresEmpate() {
+
+  document
+    .querySelectorAll(".partido-eliminatorio")
+    .forEach(partido => {
+
+      const equipos =
+        partido.querySelectorAll(
+          ".datos-partido span[id]"
+        );
+
+      const selector =
+        partido.querySelector(
+          ".selector-ganador"
+        );
+
+      if (
+        equipos.length < 2 ||
+        !selector
+      ) return;
+
+      selector.options[1].text =
+        equipos[0].textContent;
+
+      selector.options[2].text =
+        equipos[1].textContent;
+
+    });
+
+}       
 const grupos =
 [
   "A","B","C","D",
