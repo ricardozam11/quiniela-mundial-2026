@@ -1792,7 +1792,8 @@ if (
 
   if (primero) {
     primero.textContent =
-  `${banderas[clasificados[0]] || ""} ${clasificados[0]}`;
+  "[" + (banderas[clasificados[0]] || "SIN BANDERA") + "] " +
+  clasificados[0];
 
 segundo.textContent =
   `${banderas[clasificados[1]] || ""} ${clasificados[1]}`;
