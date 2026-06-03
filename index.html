@@ -1594,6 +1594,7 @@ const banderas = {
   "Panamá": "🇵🇦"
 
 };
+     const terceros = {};   
 async function cargarEstadisticas() {
 
   let total = 0;
@@ -1799,10 +1800,56 @@ segundo.textContent =
   }
 
 }
-  
+  if (tablaOrdenada.length >= 3) {
+
+  terceros[letra] = {
+    nombre: tablaOrdenada[2][0],
+    pts: tablaOrdenada[2][1].pts,
+    dif:
+      tablaOrdenada[2][1].gf -
+      tablaOrdenada[2][1].gc,
+    gf: tablaOrdenada[2][1].gf
+  };
 
 }
+actualizarMejoresTerceros();
+}
+function actualizarMejoresTerceros() {
 
+  const ranking =
+    Object.values(terceros)
+      .sort((a, b) => {
+
+        if (b.pts !== a.pts)
+          return b.pts - a.pts;
+
+        if (b.dif !== a.dif)
+          return b.dif - a.dif;
+
+        return b.gf - a.gf;
+
+      });
+
+  for (let i = 0; i < 8; i++) {
+
+    const span =
+      document.getElementById(
+        "T" + (i + 1)
+      );
+
+    if (
+      span &&
+      ranking[i]
+    ) {
+
+      span.textContent =
+        `${banderas[ranking[i].nombre] || ""} ${ranking[i].nombre}`;
+
+    }
+
+  }
+
+}
 const grupos =
 [
   "A","B","C","D",
