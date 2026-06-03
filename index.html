@@ -1042,7 +1042,7 @@
     <div class="desempate">
         Ganador si hay empate:
         <select class="selector-ganador"
-                onchange="alert('CAMBIO DETECTADO')">
+            
             <option value="">Seleccionar</option>
             <option value="1">Equipo 1</option>
             <option value="2">Equipo 2</option>
@@ -2275,7 +2275,24 @@ document
     actualizarGanadoresSF
   );
 
-});     
+}); 
+     document
+  .querySelectorAll(".selector-ganador")
+  .forEach(selector => {
+
+    selector.addEventListener(
+      "change",
+      () => {
+
+        actualizarGanadores();
+        actualizarGanadoresOF();
+        actualizarGanadoresCF();
+        actualizarGanadoresSF();
+
+      }
+    );
+
+  });   
 </script>
 </body>
 </html>
