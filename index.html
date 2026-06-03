@@ -2489,10 +2489,15 @@ alert ("después")
           ".selector-ganador"
         );
 
-      if (
-        equipos.length < 2 ||
-        !selector
-      ) return;
+      alert(
+  "Equipos encontrados: " +
+  equipos.length
+);
+
+if (
+  equipos.length < 2 ||
+  !selector
+) return;
 
       selector.options[1].text =
         equipos[0].textContent;
