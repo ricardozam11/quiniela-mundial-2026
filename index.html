@@ -2472,7 +2472,7 @@ function actualizarGanadoresOF() {
 }    
  alert ("antes")       
   function actualizarSelectoresEmpate() {
-alert ("después")
+
   alert("Actualizando selectores");
 
   document
@@ -2490,26 +2490,36 @@ alert ("después")
         );
 
       alert(
-  "Equipos encontrados: " +
-  equipos.length
-);
+        "Equipos encontrados: " +
+        equipos.length
+      );
 
-if (
-  equipos.length < 2 ||
-  !selector
-) return;
+      if (
+        equipos.length < 2 ||
+        !selector
+      ) return;
+
+      alert(
+        "Opciones: " +
+        selector.options.length
+      );
+
+      if (
+        selector.options.length < 3
+      ) return;
 
       selector.options[1].text =
-  equipos[0].textContent;
+        equipos[0].textContent;
 
-selector.options[2].text =
-  equipos[1].textContent;
+      selector.options[2].text =
+        equipos[1].textContent;
 
-alert(
-  selector.options[1].text +
-  " | " +
-  selector.options[2].text
-);
+      alert(
+        selector.options[1].text +
+        " | " +
+        selector.options[2].text
+      );
+
     });
 
 }
