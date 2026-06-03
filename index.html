@@ -1019,31 +1019,37 @@
             </p>
 
             
-                <!-- Partido 1 -->
                 <div class="partido-eliminatorio" id="P1">
-                    <span class="info-fecha">05 Jul • 16:00 | Ciudad de México</span>
-                    <div class="datos-partido">
-                       <div class="desempate">
-    Ganador si hay empate:
-    <select class="selector-ganador"
-        onchange="alert=('Cambió'); 
-        actualizarGanadores()">
-        <option value="">Seleccionar</option>
-        <option value="1">Equipo 1</option>
-        <option value="2">Equipo 2</option>
-    </select>
-</div> 
-                       <span id="A1">1º Grupo A</span>
 
-<input type="number" min="0" max="15" class="input-marcador">
+    <span class="info-fecha">
+        05 Jul • 16:00 | Ciudad de México
+    </span>
 
-<span class="separador">-</span>
+    <div class="datos-partido">
 
-<input type="number" min="0" max="15" class="input-marcador">
+        <span id="A1">1º Grupo A</span>
 
-<span id="C2">2º Grupo C</span> 
-                    </div>
-                </div>
+        <input type="number" min="0" max="15" class="input-marcador">
+
+        <span class="separador">-</span>
+
+        <input type="number" min="0" max="15" class="input-marcador">
+
+        <span id="C2">2º Grupo C</span>
+
+    </div>
+
+    <div class="desempate">
+        Ganador si hay empate:
+        <select class="selector-ganador"
+                onchange="alert('CAMBIO DETECTADO')">
+            <option value="">Seleccionar</option>
+            <option value="1">Equipo 1</option>
+            <option value="2">Equipo 2</option>
+        </select>
+    </div>
+
+</div>
 
                 <!-- Partido 2 -->
                 <div class="partido-eliminatorio"id="P2">
