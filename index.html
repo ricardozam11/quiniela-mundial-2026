@@ -1689,7 +1689,26 @@ tablaOrdenada.forEach(([nombre, datos], indice) => {
 
 });
 
-if (clasificados.length >= 2) {
+let partidosCompletos = 0;
+
+partidos.forEach(partido => {
+
+  const marcadores =
+    partido.querySelectorAll(".input-marcador");
+
+  if (
+    marcadores[0].value !== "" &&
+    marcadores[1].value !== ""
+  ) {
+    partidosCompletos++;
+  }
+
+});
+
+if (
+  clasificados.length >= 2 &&
+  partidosCompletos === partidos.length
+) {
 
   const primero =
     document.getElementById(letra + "1");
