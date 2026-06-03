@@ -2040,6 +2040,90 @@ function actualizarGanadoresOF() {
   }
 
 }      
+    function actualizarGanadoresSF() {
+
+  for (let i = 1; i <= 2; i++) {
+
+    const partido =
+      document.getElementById("PS" + i);
+
+    if (!partido) continue;
+
+    const equipos =
+      partido.querySelector(".datos-partido")
+             .querySelectorAll("span[id]");
+
+    const marcadores =
+      partido.querySelectorAll(".input-marcador");
+
+    if (
+      equipos.length < 2 ||
+      marcadores.length < 2
+    ) continue;
+
+    const g1 =
+      parseInt(marcadores[0].value);
+
+    const g2 =
+      parseInt(marcadores[1].value);
+
+    if (
+      isNaN(g1) ||
+      isNaN(g2)
+    ) continue;
+
+    let ganador = "";
+    let perdedor = "";
+
+    if (g1 > g2) {
+
+      ganador =
+        equipos[0].textContent;
+
+      perdedor =
+        equipos[1].textContent;
+
+    }
+
+    if (g2 > g1) {
+
+      ganador =
+        equipos[1].textContent;
+
+      perdedor =
+        equipos[0].textContent;
+
+    }
+
+    const destinoGanador =
+      document.getElementById(
+        "SF" + i
+      );
+
+    const destinoPerdedor =
+      document.getElementById(
+        "PSF" + i
+      );
+
+    if (
+      destinoGanador &&
+      ganador !== ""
+    ) {
+      destinoGanador.textContent =
+        ganador;
+    }
+
+    if (
+      destinoPerdedor &&
+      perdedor !== ""
+    ) {
+      destinoPerdedor.textContent =
+        perdedor;
+    }
+
+  }
+
+}    
 const grupos =
 [
   "A","B","C","D",
@@ -2109,6 +2193,19 @@ document
   );
 
 });  
+   document
+.querySelectorAll(
+  '#PS1 .input-marcador, \
+   #PS2 .input-marcador'
+)
+.forEach(input => {
+
+  input.addEventListener(
+    "input",
+    actualizarGanadoresSF
+  );
+
+});     
 </script>
 </body>
 </html>
