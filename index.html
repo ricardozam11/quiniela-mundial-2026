@@ -1850,6 +1850,65 @@ function actualizarMejoresTerceros() {
   }
 
 }
+        function actualizarGanadores() {
+
+  for (let i = 1; i <= 16; i++) {
+
+    const partido =
+      document.getElementById("P" + i);
+
+    if (!partido) continue;
+
+    const equipos =
+      partido.querySelectorAll("span");
+
+    const marcadores =
+      partido.querySelectorAll(".input-marcador");
+
+    if (
+      equipos.length < 2 ||
+      marcadores.length < 2
+    ) continue;
+
+    const g1 =
+      parseInt(marcadores[0].value);
+
+    const g2 =
+      parseInt(marcadores[1].value);
+
+    if (
+      isNaN(g1) ||
+      isNaN(g2)
+    ) continue;
+
+    let ganador = "";
+
+    if (g1 > g2) {
+      ganador =
+        equipos[0].textContent;
+    }
+
+    if (g2 > g1) {
+      ganador =
+        equipos[1].textContent;
+    }
+
+    const destino =
+      document.getElementById(
+        "G" + i
+      );
+
+    if (
+      destino &&
+      ganador !== ""
+    ) {
+      destino.textContent =
+        ganador;
+    }
+
+  }
+
+}
 const grupos =
 [
   "A","B","C","D",
@@ -1873,7 +1932,18 @@ grupos.forEach(letra => {
     });
 
 });
+document
+.querySelectorAll(
+  ".partido-eliminatorio .input-marcador"
+)
+.forEach(input => {
 
+  input.addEventListener(
+    "input",
+    actualizarGanadores
+  );
+
+});
 console.log("Sistema de grupos cargado");
 </script>
 </body>
