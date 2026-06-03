@@ -2480,10 +2480,15 @@ function actualizarGanadoresOF() {
     .forEach(partido => {
 
       const equipos =
-        partido.querySelectorAll(
-          ".datos-partido span[id]"
-        );
-
+  partido.querySelectorAll(
+    ".datos-partido span"
+  );
+alert(
+  "Encontrados: " +
+  Array.from(equipos)
+    .map(e => e.textContent)
+    .join(" | ")
+);
       const selector =
   partido.querySelector("select");
 
