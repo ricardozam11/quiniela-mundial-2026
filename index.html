@@ -2470,8 +2470,9 @@ function actualizarGanadoresOF() {
   }
 
 }    
+ alert ("antes")       
   function actualizarSelectoresEmpate() {
-
+alert ("después")
   alert("Actualizando selectores");
 
   document
@@ -2482,11 +2483,6 @@ function actualizarGanadoresOF() {
         partido.querySelectorAll(
           ".datos-partido span[id]"
         );
-
-      alert(
-        "Equipos encontrados: " +
-        equipos.length
-      );
 
       const selector =
         partido.querySelector(
@@ -2506,7 +2502,7 @@ function actualizarGanadoresOF() {
 
     });
 
-}      
+}
 const grupos =
 [
   "A","B","C","D",
@@ -2606,6 +2602,8 @@ document
     );
 
   });   
+      
+    actualizarSelectoresEmpate();    
 </script>
 </body>
 </html>
