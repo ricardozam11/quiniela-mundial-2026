@@ -2099,23 +2099,16 @@ const tercerLugar =
     "tercerLugarPronosticado"
   )?.textContent || ""; 
 await setDoc(
-  doc(
-    db,
-    "Pronósticos",
-    participante
-  ),
+  doc(db, "Pronósticos", participante),
   {
     nombre: participante,
+    pruebaGuardado: "CHATGPT",
 
-    fechaGuardado:
-      serverTimestamp(),
-
+    fechaGuardado: serverTimestamp(),
     bloqueado: true,
 
     campeon: campeon,
-
     subcampeon: subcampeon,
-
     tercerLugar: tercerLugar,
 
     goleador: goleador,
