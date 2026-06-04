@@ -10,7 +10,23 @@
     <div class="contenedor-principal">
         
         <h1>🏆 APUESTA MUNDIAL 2026</h1>
+<div class="partido-eliminatorio">
 
+    <div class="datos-partido">
+        <strong>Participante:</strong>
+
+        <select id="participanteSeleccionado">
+            <option value="">
+                Seleccione participante
+            </option>
+        </select>
+
+        <button id="guardarPronostico">
+            💾 Guardar Pronóstico
+        </button>
+    </div>
+
+</div>
         <div class="contador-recaudado">
             <h3>Dinero Total Recolectado</h3>
             <span id="dineroRecaudado">₡ 0,00</span>
@@ -1801,8 +1817,12 @@ import { db } from "./firestore.js";
 
 import {
   collection,
-  getDocs
-} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+  getDocs, 
+    doc, 
+    getDocs, 
+    setDoc
+}
+    from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 const banderas = {
 
   // GRUPO A
@@ -1932,7 +1952,47 @@ console.log("Recaudado:", recaudado);
 }
 
 cargarEstadisticas();
-        
+async function cargarParticipantesSelector() {
+
+  const selector =
+    document.getElementById(
+      "participanteSeleccionado"
+    );
+
+  if (!selector) return;
+
+  const snapshot =
+    await getDocs(
+      collection(
+        db,
+        "participantes"
+      )
+    );
+
+  snapshot.forEach(doc => {
+
+    const datos = doc.data();
+
+    const option =
+      document.createElement(
+        "option"
+      );
+
+    option.value =
+      datos.nombre;
+
+    option.textContent =
+      datos.nombre;
+
+    selector.appendChild(
+      option
+    );
+
+  });
+
+}
+
+cargarParticipantesSelector();        
 
 function calcularGrupo(letra) {
 
