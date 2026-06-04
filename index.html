@@ -2109,7 +2109,17 @@ const tercerLugar =
   "\nSubcampeón: " + subcampeon +
   "\nTercer Lugar: " + tercerLugar
 );
-   
+ const clasificadosOctavos = [];
+
+for (let i = 1; i <= 16; i++) {
+
+  clasificadosOctavos.push(
+    document.getElementById(
+      "octavo_" + i
+    )?.value || ""
+  );
+
+}  
 await setDoc(
   doc(db, "Pronósticos", participante),
   {
@@ -2124,6 +2134,8 @@ await setDoc(
     tercerLugar: tercerLugar,
 
     goleador: goleador,
+      clasificadosOctavos:
+  clasificadosOctavos,
 
     partidos: partidos
   }
