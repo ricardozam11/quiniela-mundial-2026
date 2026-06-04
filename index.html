@@ -2012,45 +2012,7 @@ async function cargarParticipantesSelector() {
   });
 
 }        
-async function cargarParticipantesSelector() {
 
-  const selector =
-    document.getElementById(
-      "participanteSeleccionado"
-    );
-
-  if (!selector) return;
-
-  const snapshot =
-    await getDocs(
-      collection(
-        db,
-        "participantes"
-      )
-    );
-
-  snapshot.forEach(doc => {
-
-    const datos = doc.data();
-
-    const option =
-      document.createElement(
-        "option"
-      );
-
-    option.value =
-      datos.nombre;
-
-    option.textContent =
-      datos.nombre;
-
-    selector.appendChild(
-      option
-    );
-
-  });
-
-}
 
 cargarParticipantesSelector();        
 
