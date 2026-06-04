@@ -2098,6 +2098,11 @@ const tercerLugar =
   document.getElementById(
     "tercerLugarPronosticado"
   )?.textContent || ""; 
+    alert(
+  "Campeón: " + campeon +
+  "\nSubcampeón: " + subcampeon +
+  "\nTercer Lugar: " + tercerLugar
+);
 await setDoc(
   doc(db, "Pronósticos", participante),
   {
