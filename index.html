@@ -1806,6 +1806,9 @@
              <button id="calcularRanking">
   Calcular Ranking
 </button>
+            <button id="ganadorMarcadores">
+  🏆 Ganador Marcadores
+</button> 
 </section>
         <!-- ==============================================
              OTRAS APUESTAS
@@ -2259,7 +2262,62 @@ if (
     "Ranking calculado correctamente."
   );
 
-}      
+}   
+ async function calcularGanadorMarcadores() {
+
+  const snapshot =
+    await getDocs(
+      collection(
+        db,
+        "Ranking"
+      )
+    );
+
+  let ganador = "";
+  let puntosMax = -1;
+
+  snapshot.forEach(docSnap => {
+
+    const datos =
+      docSnap.data();
+
+    if (
+      datos.puntos > puntosMax
+    ) {
+
+      puntosMax =
+        datos.puntos;
+
+      ganador =
+        datos.nombre;
+
+    }
+
+  });
+
+  await setDoc(
+    doc(
+      db,
+      "Ganadores",
+      "Marcadores"
+    ),
+    {
+      ganador:
+        ganador,
+
+      puntos:
+        puntosMax,
+
+      actualizado:
+        serverTimestamp()
+    }
+  );
+
+  alert(
+    "Ganador de marcadores calculado."
+  );
+
+}
  async function crearResultadosOficiales() {
 
   const partidos = {};
@@ -3199,7 +3257,15 @@ document
 ?.addEventListener(
   "click",
   calcularRanking
-);  
+); 
+  document
+.getElementById(
+  "ganadorMarcadores"
+)
+?.addEventListener(
+  "click",
+  calcularGanadorMarcadores
+);      
 </script>
 </body>
                               </html>
