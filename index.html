@@ -3354,7 +3354,14 @@ function cargarBanderasEnPartidos() {
   let ranking = [];
 
   snapshot.forEach(docu => {
-    ranking.push(docu.data());
+    const datos = docu.data();
+
+if (
+  datos.nombre &&
+  typeof datos.puntos !== "undefined"
+) {
+  ranking.push(datos);
+}
   });
 
   ranking.sort(
