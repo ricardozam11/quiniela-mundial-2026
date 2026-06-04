@@ -1808,6 +1808,9 @@
 </button>
             <button id="ganadorMarcadores">
   🏆 Ganador Marcadores
+                <button id="calcularOctavos">
+  🏆 Calcular Octavos
+</button>
 </button> 
 </section>
         <!-- ==============================================
@@ -2355,7 +2358,88 @@ if (
       partidos: partidos
     }
   );
+async function calcularGanadorOctavos() {
 
+  const resultadosDoc = await getDoc(
+    doc(db, "Resultados", "Oficial")
+  );
+
+  if (!resultadosDoc.exists()) {
+    alert("No existen resultados oficiales.");
+    return;
+  }
+
+  const oficiales =
+    resultadosDoc.data().clasificadosOctavos || [];
+
+  const participantes =
+    await getDocs(
+      collection(db, "Pronósticos")
+    );
+
+  let mejorPuntaje = -1;
+  let ganadores = [];
+
+  for (const participante of participantes.docs) {
+
+    const datos = participante.data();
+
+    const elegidos =
+      datos.clasificadosOctavos || [];
+
+    let puntos = 0;
+
+    for (const equipo of elegidos) {
+
+      if (oficiales.includes(equipo)) {
+        puntos++;
+      }
+
+    }
+
+    if (puntos > mejorPuntaje) {
+
+      mejorPuntaje = puntos;
+
+      ganadores = [
+        datos.nombre
+      ];
+
+    } else if (
+      puntos === mejorPuntaje
+    ) {
+
+      ganadores.push(
+        datos.nombre
+      );
+
+    }
+
+  }
+
+  await setDoc(
+    doc(
+      db,
+      "Ganadores",
+      "Octavos"
+    ),
+    {
+      ganadores:
+        ganadores,
+
+      puntos:
+        mejorPuntaje,
+
+      actualizado:
+        serverTimestamp()
+    }
+  );
+
+  alert(
+    "Ganador de octavos calculado."
+  );
+
+}
   alert("Resultados oficiales creados.");
 }       
 function calcularGrupo(letra) {
