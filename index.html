@@ -2084,6 +2084,20 @@ async function guardarPronostico() {
   document.getElementById(
     "goleador"
   )?.value || "";
+   const campeon =
+  document.getElementById(
+    "campeonPronosticado"
+  )?.textContent || "";
+
+const subcampeon =
+  document.getElementById(
+    "subcampeonPronosticado"
+  )?.textContent || "";
+
+const tercerLugar =
+  document.getElementById(
+    "tercerLugarPronosticado"
+  )?.textContent || ""; 
 await setDoc(
   doc(
     db,
@@ -2097,6 +2111,12 @@ await setDoc(
       serverTimestamp(),
 
     bloqueado: true,
+
+    campeon: campeon,
+
+    subcampeon: subcampeon,
+
+    tercerLugar: tercerLugar,
 
     goleador: goleador,
 
