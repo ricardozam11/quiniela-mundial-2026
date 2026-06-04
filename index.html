@@ -2259,17 +2259,46 @@ function actualizarGanadoresOF() {
       isNaN(g2)
     ) continue;
 
-    let ganador = "";
+let ganador = "";
 
-    if (g1 > g2) {
+if (g1 > g2) {
+
+  ganador =
+    equipos[0].textContent;
+
+}
+else if (g2 > g1) {
+
+  ganador =
+    equipos[1].textContent;
+
+}
+else {
+
+  const selector =
+    partido.querySelector(
+      ".selector-ganador"
+    );
+
+  if (selector) {
+
+    if (selector.value === "1") {
+
       ganador =
         equipos[0].textContent;
+
     }
 
-    if (g2 > g1) {
+    if (selector.value === "2") {
+
       ganador =
         equipos[1].textContent;
+
     }
+
+  }
+
+}
 
     const destino =
       document.getElementById(
@@ -2321,15 +2350,44 @@ actualizarSelectoresEmpate();
 
     let ganador = "";
 
-    if (g1 > g2) {
+if (g1 > g2) {
+
+  ganador =
+    equipos[0].textContent;
+
+}
+else if (g2 > g1) {
+
+  ganador =
+    equipos[1].textContent;
+
+}
+else {
+
+  const selector =
+    partido.querySelector(
+      ".selector-ganador"
+    );
+
+  if (selector) {
+
+    if (selector.value === "1") {
+
       ganador =
         equipos[0].textContent;
+
     }
 
-    if (g2 > g1) {
+    if (selector.value === "2") {
+
       ganador =
         equipos[1].textContent;
+
     }
+
+  }
+
+}
 
     const destino =
       document.getElementById(
@@ -2380,7 +2438,58 @@ actualizarSelectoresEmpate();
     ) continue;
 
     let ganador = "";
-    let perdedor = "";
+let perdedor = "";
+
+if (g1 > g2) {
+
+  ganador =
+    equipos[0].textContent;
+
+  perdedor =
+    equipos[1].textContent;
+
+}
+else if (g2 > g1) {
+
+  ganador =
+    equipos[1].textContent;
+
+  perdedor =
+    equipos[0].textContent;
+
+}
+else {
+
+  const selector =
+    partido.querySelector(
+      ".selector-ganador"
+    );
+
+  if (selector) {
+
+    if (selector.value === "1") {
+
+      ganador =
+        equipos[0].textContent;
+
+      perdedor =
+        equipos[1].textContent;
+
+    }
+
+    if (selector.value === "2") {
+
+      ganador =
+        equipos[1].textContent;
+
+      perdedor =
+        equipos[0].textContent;
+
+    }
+
+  }
+
+}
 
     if (g1 > g2) {
 
