@@ -2438,11 +2438,6 @@ function actualizarSelectoresEmpate() {
     .querySelectorAll(".partido-eliminatorio")
     .forEach(partido => {
 
-      const equipos =
-        partido.querySelectorAll(
-          ".datos-partido span[id]"
-        );
-
       const selector =
         partido.querySelector(
           ".selector-ganador"
@@ -2450,23 +2445,53 @@ function actualizarSelectoresEmpate() {
 
       if (
         !selector ||
-        selector.options.length < 3 ||
-        equipos.length < 2
+        selector.options.length < 3
       ) {
         return;
       }
 
+      const spans =
+        partido.querySelector(
+          ".datos-partido"
+        )
+        .querySelectorAll("span[id]");
+
+      if (spans.length < 2) {
+        return;
+      }
+
+      selector.options[0].text =
+        "Seleccionar";
+
       selector.options[1].text =
-        equipos[0].textContent.trim();
+        spans[0].textContent.trim();
 
       selector.options[2].text =
-        equipos[1].textContent.trim();
+        spans[1].textContent.trim();
 
     });
 
 }
 
+function cargarBanderasEnPartidos() {
 
+  document
+    .querySelectorAll(".equipo")
+    .forEach(span => {
+
+      const nombre =
+        span.textContent.trim();
+
+      if (banderas[nombre]) {
+
+        span.textContent =
+          `${banderas[nombre]} ${nombre}`;
+
+      }
+
+    });
+
+}
 const grupos =
 [
   "A","B","C","D",
@@ -2561,13 +2586,14 @@ document
         actualizarGanadoresOF();
         actualizarGanadoresCF();
         actualizarGanadoresSF();
-
+        actualizarSelectoresEmpate();
       }
     );
 
   });   
       
     actualizarSelectoresEmpate();    
+     cargarBanderasEnPartidos();   
 </script>
 </body>
                               </html>
