@@ -1803,6 +1803,9 @@
         </div>
 
     </div>
+             <button id="calcularRanking">
+  Calcular Ranking
+</button>
 </section>
         <!-- ==============================================
              OTRAS APUESTAS
@@ -2126,6 +2129,132 @@ alert(
   "Pronóstico guardado correctamente."
 );
 } 
+  async function calcularRanking() {
+
+  const resultadosDoc =
+    await getDoc(
+      doc(
+        db,
+        "Resultados",
+        "Oficial"
+      )
+    );
+
+  if (!resultadosDoc.exists()) {
+
+    alert(
+      "No existen resultados oficiales."
+    );
+
+    return;
+  }
+
+  const resultados =
+    resultadosDoc.data().partidos;
+
+  const participantes =
+    await getDocs(
+      collection(
+        db,
+        "Pronósticos"
+      )
+    );
+
+  for (const participante of participantes.docs) {
+
+    const datos =
+      participante.data();
+
+    let puntos = 0;
+    let exactos = 0;
+    let parciales = 0;
+
+    const partidos =
+      datos.partidos || {};
+
+    for (
+      let i = 1;
+      i <= 104;
+      i++
+    ) {
+
+      const clave =
+        "partido_" + i;
+
+      const pron =
+        partidos[clave];
+
+      const real =
+        resultados[clave];
+
+      if (!pron || !real)
+        continue;
+
+      const g1Pron =
+        pron.g1;
+
+      const g2Pron =
+        pron.g2;
+
+      const g1Real =
+        real.g1;
+
+      const g2Real =
+        real.g2;
+
+      if (
+        g1Pron === g1Real &&
+        g2Pron === g2Real
+      ) {
+
+        puntos += 3;
+        exactos++;
+
+      } else if (
+
+        g1Pron === g1Real ||
+        g2Pron === g2Real
+
+      ) {
+
+        puntos += 1;
+        parciales++;
+
+      }
+
+    }
+
+    await setDoc(
+      doc(
+        db,
+        "Ranking",
+        datos.nombre
+      ),
+      {
+        nombre:
+          datos.nombre,
+
+        puntos:
+          puntos,
+
+        exactos:
+          exactos,
+
+        parciales:
+          parciales,
+
+        actualizado:
+          serverTimestamp()
+      }
+    );
+
+  }
+
+  alert(
+    "Ranking calculado correctamente."
+  );
+
+}      
  async function crearResultadosOficiales() {
 
   const partidos = {};
@@ -3058,7 +3187,14 @@ document
       
     actualizarSelectoresEmpate();    
      cargarBanderasEnPartidos();   
-       
+     document
+.getElementById(
+  "calcularRanking"
+)
+?.addEventListener(
+  "click",
+  calcularRanking
+);  
 </script>
 </body>
                               </html>
