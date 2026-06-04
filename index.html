@@ -2478,7 +2478,7 @@ function actualizarGanadoresOF() {
 
       const equipos =
         partido.querySelectorAll(
-          ".datos-partido span"
+          ".datos-partido span[id]"
         );
 
       const selector =
@@ -2487,7 +2487,7 @@ function actualizarGanadoresOF() {
       if (
         !selector ||
         selector.options.length < 3 ||
-        equipos.length < 3
+        equipos.length < 2
       ) {
         return;
       }
@@ -2496,7 +2496,7 @@ function actualizarGanadoresOF() {
         equipos[0].textContent.trim();
 
       selector.options[2].text =
-        equipos[2].textContent.trim();
+        equipos[1].textContent.trim();
 
     });
 
