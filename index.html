@@ -2469,8 +2469,7 @@ function actualizarGanadoresOF() {
   }
 
 }    
-        
-  function actualizarSelectoresEmpate() {
+function actualizarSelectoresEmpate() {
 
   document
     .querySelectorAll(".partido-eliminatorio")
@@ -2486,17 +2485,29 @@ function actualizarGanadoresOF() {
 
       if (
         !selector ||
-        selector.options.length < 3 ||
-        equipos.length < 2
+        selector.options.length < 3
       ) {
         return;
       }
 
-      selector.options[1].text =
-        equipos[0].textContent.trim();
+      alert(
+        "Equipos encontrados: " +
+        equipos.length
+      );
 
-      selector.options[2].text =
-        equipos[1].textContent.trim();
+      if (equipos.length >= 2) {
+        alert(
+          equipos[0].textContent +
+          " | " +
+          equipos[1].textContent
+        );
+
+        selector.options[1].text =
+          equipos[0].textContent.trim();
+
+        selector.options[2].text =
+          equipos[1].textContent.trim();
+      }
 
     });
 
