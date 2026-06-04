@@ -2084,13 +2084,27 @@ async function guardarPronostico() {
   document.getElementById(
     "goleador"
   )?.value || "";
+await setDoc(
+  doc(
+    db,
+    "Pronósticos",
+    participante
+  ),
+  {
+    nombre: participante,
 
+    fechaGuardado:
+      serverTimestamp(),
+
+    bloqueado: true,
+
+    goleador: goleador,
+
+    partidos: partidos
+  }
+);
 alert(
-  "Se recopilaron " +
-  Object.keys(partidos).length +
-  " partidos.\n\n" +
-  "Goleador: " +
-  goleador
+  "Pronóstico guardado correctamente."
 );
 } 
 function calcularGrupo(letra) {
