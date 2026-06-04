@@ -1841,7 +1841,8 @@ import {
   getDocs, 
     doc, 
     getDoc, 
-    setDoc
+    setDoc,
+    serverTimestamp
 }
     from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 const banderas = {
@@ -2014,7 +2015,38 @@ async function cargarParticipantesSelector() {
 }        
 
 
-cargarParticipantesSelector();        
+cargarParticipantesSelector(); 
+       document
+.getElementById("guardarPronostico")
+.addEventListener(
+  "click",
+  guardarPronostico
+);
+
+async function guardarPronostico() {
+
+  const participante =
+    document.getElementById(
+      "participanteSeleccionado"
+    ).value;
+
+  if (!participante) {
+
+    alert(
+      "Seleccione un participante."
+    );
+
+    return;
+  }
+
+  const confirmar =
+    confirm(
+      "Una vez guardado no podrá modificar su pronóstico. ¿Desea continuar?"
+    );
+
+  if (!confirmar) return;
+
+} 
 
 function calcularGrupo(letra) {
 
