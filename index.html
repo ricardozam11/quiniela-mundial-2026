@@ -2196,31 +2196,36 @@ alert(
       const g2Pron =
         pron.g2;
 
-      const g1Real =
-        real.g1;
+      const g1Real = real.g1;
+const g2Real = real.g2;
 
-      const g2Real =
-        real.g2;
+// Ignorar partidos sin resultado oficial
+if (
+  g1Real === "" ||
+  g2Real === ""
+) {
+  continue;
+}
 
-      if (
-        g1Pron === g1Real &&
-        g2Pron === g2Real
-      ) {
+if (
+  g1Pron === g1Real &&
+  g2Pron === g2Real
+) {
 
-        puntos += 3;
-        exactos++;
+  puntos += 3;
+  exactos++;
 
-      } else if (
+} else if (
 
-        g1Pron === g1Real ||
-        g2Pron === g2Real
+  g1Pron === g1Real ||
+  g2Pron === g2Real
 
-      ) {
+) {
 
-        puntos += 1;
-        parciales++;
+  puntos += 1;
+  parciales++;
 
-      }
+}
 
     }
 
