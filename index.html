@@ -2093,14 +2093,17 @@ async function guardarPronostico() {
     });
 
   const goleador =
-    document.getElementById(
-      "goleador"
-    )?.value || "";
+  document.getElementById(
+    "goleador"
+  )?.value || "";
 
-  console.log(partidos);
-  console.log(goleador);
-
-}
+alert(
+  "Se recopilaron " +
+  Object.keys(partidos).length +
+  " partidos.\n\n" +
+  "Goleador: " +
+  goleador
+);
 
 function calcularGrupo(letra) {
 
