@@ -2031,11 +2031,7 @@ async function guardarPronostico() {
     ).value;
 
   if (!participante) {
-
-    alert(
-      "Seleccione un participante."
-    );
-
+    alert("Seleccione un participante.");
     return;
   }
 
@@ -2046,7 +2042,65 @@ async function guardarPronostico() {
 
   if (!confirmar) return;
 
-} 
+  const docRef =
+    doc(
+      db,
+      "Pronósticos",
+      participante
+    );
+
+  const snap =
+    await getDoc(docRef);
+
+  if (snap.exists()) {
+
+    alert(
+      "Este participante ya registró un pronóstico y no puede modificarlo."
+    );
+
+    return;
+  }
+
+  const partidos = {};
+
+  document
+    .querySelectorAll(
+      ".partido, .partido-eliminatorio"
+    )
+    .forEach((partido, indice) => {
+
+      const inputs =
+        partido.querySelectorAll(
+          ".input-marcador"
+        );
+
+      const selector =
+        partido.querySelector(
+          ".selector-ganador"
+        );
+
+      partidos[
+        "partido_" + (indice + 1)
+      ] = {
+
+        g1: inputs[0]?.value || "",
+        g2: inputs[1]?.value || "",
+        desempate:
+          selector?.value || ""
+
+      };
+
+    });
+
+  const goleador =
+    document.getElementById(
+      "goleador"
+    )?.value || "";
+
+  console.log(partidos);
+  console.log(goleador);
+
+}
 
 function calcularGrupo(letra) {
 
