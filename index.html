@@ -1757,7 +1757,28 @@
     </div>
             </div>
         </section>
+         <section class="fase-eliminatoria">
+    <h2>🏆 Podio Pronosticado</h2>
 
+    <div class="partido-eliminatorio">
+
+        <div class="datos-partido">
+            <strong>🥇 Campeón:</strong>
+            <span id="campeonPronosticado">---</span>
+        </div>
+
+        <div class="datos-partido">
+            <strong>🥈 Subcampeón:</strong>
+            <span id="subcampeonPronosticado">---</span>
+        </div>
+
+        <div class="datos-partido">
+            <strong>🥉 Tercer Lugar:</strong>
+            <span id="tercerLugarPronosticado">---</span>
+        </div>
+
+    </div>
+</section>
         <!-- ==============================================
              OTRAS APUESTAS
         ============================================== -->
@@ -2540,7 +2561,121 @@ else {
 
   }
 actualizarSelectoresEmpate();
+      actualizarPodio();  
 }    
+ function actualizarPodio() {
+
+  const final =
+    document.getElementById("Final");
+
+  const tercerPuesto =
+    document.getElementById("PTL");
+
+  if (!final || !tercerPuesto) return;
+
+  const equiposFinal =
+    final.querySelectorAll(
+      ".datos-partido span[id]"
+    );
+
+  const marcadoresFinal =
+    final.querySelectorAll(
+      ".input-marcador"
+    );
+
+  const equiposTercer =
+    tercerPuesto.querySelectorAll(
+      ".datos-partido span[id]"
+    );
+
+  const marcadoresTercer =
+    tercerPuesto.querySelectorAll(
+      ".input-marcador"
+    );
+
+  let campeon = "---";
+  let subcampeon = "---";
+  let tercerLugar = "---";
+
+  if (
+    marcadoresFinal.length >= 2 &&
+    equiposFinal.length >= 2
+  ) {
+
+    const g1 =
+      parseInt(marcadoresFinal[0].value);
+
+    const g2 =
+      parseInt(marcadoresFinal[1].value);
+
+    if (!isNaN(g1) && !isNaN(g2)) {
+
+      if (g1 > g2) {
+
+        campeon =
+          equiposFinal[0].textContent;
+
+        subcampeon =
+          equiposFinal[1].textContent;
+
+      }
+      else if (g2 > g1) {
+
+        campeon =
+          equiposFinal[1].textContent;
+
+        subcampeon =
+          equiposFinal[0].textContent;
+
+      }
+
+    }
+
+  }
+
+  if (
+    marcadoresTercer.length >= 2 &&
+    equiposTercer.length >= 2
+  ) {
+
+    const g1 =
+      parseInt(marcadoresTercer[0].value);
+
+    const g2 =
+      parseInt(marcadoresTercer[1].value);
+
+    if (!isNaN(g1) && !isNaN(g2)) {
+
+      if (g1 > g2) {
+
+        tercerLugar =
+          equiposTercer[0].textContent;
+
+      }
+      else if (g2 > g1) {
+
+        tercerLugar =
+          equiposTercer[1].textContent;
+
+      }
+
+    }
+
+  }
+
+  document.getElementById(
+    "campeonPronosticado"
+  ).textContent = campeon;
+
+  document.getElementById(
+    "subcampeonPronosticado"
+  ).textContent = subcampeon;
+
+  document.getElementById(
+    "tercerLugarPronosticado"
+  ).textContent = tercerLugar;
+
+}       
 function actualizarSelectoresEmpate() {
 
   document
