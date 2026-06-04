@@ -2482,13 +2482,10 @@ function actualizarSelectoresEmpate() {
           ".datos-partido span[id]"
         );
 
-      alert(
-        "Equipos encontrados: " +
-        equipos.length
-      );
-
       const selector =
-        partido.querySelector("select");
+        partido.querySelector(
+          ".selector-ganador"
+        );
 
       if (
         !selector ||
@@ -2505,12 +2502,7 @@ function actualizarSelectoresEmpate() {
         equipos[1].textContent.trim();
 
     });
-alert(
-  "OFP1: " +
-  document.getElementById("G1").textContent +
-  " | " +
-  document.getElementById("G2").textContent
-);
+
 }
 
 
