@@ -2210,7 +2210,7 @@ else if (g2 > g1) {
 
 }
 else {
-alert("ENTRO AL EMPATE EN P" + i) ;
+
   const selector =
     partido.querySelector(
       ".selector-ganador"
@@ -2218,10 +2218,7 @@ alert("ENTRO AL EMPATE EN P" + i) ;
 
   if (selector) {
     
-alert(
-  "Valor selector: " +
-  selector.value
-);
+
     if (selector.value === "1") {
 
       ganador =
@@ -2247,26 +2244,27 @@ alert(
 
 
 
-if (ganador !== "") {
+if (
+  destino &&
+  ganador !== ""
+) {
 
-  
+  destino.textContent =
+    ganador;
 
-
-destino.textContent = ganador; 
-
-alert("Actualizando G" + i + " con " + ganador);  
+  actualizarSelectoresEmpate();
 
 }
 
   }
 actualizarGanadoresOF();
-actualizarSelectoresEmpate();
+
 
 actualizarGanadoresCF();
-actualizarSelectoresEmpate();
+
 
 actualizarGanadoresSF();
-actualizarSelectoresEmpate();            
+            
 }
         
 function actualizarGanadoresOF() {
