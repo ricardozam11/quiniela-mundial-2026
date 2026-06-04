@@ -2470,81 +2470,40 @@ function actualizarGanadoresOF() {
   }
 
 }    
- alert ("antes")       
+        
   function actualizarSelectoresEmpate() {
-
-  alert("Actualizando selectores");
 
   document
     .querySelectorAll(".partido-eliminatorio")
     .forEach(partido => {
 
-    const equipos =
-  partido.querySelectorAll(
-    ".datos-partido span"
-  );
+      const equipos =
+        partido.querySelectorAll(
+          ".datos-partido span"
+        );
 
-let texto = "";
-
-equipos.forEach((e, i) => {
-  texto += i + ": " + e.textContent + "\n";
-});
-
-alert(texto);
       const selector =
-  partido.querySelector("select");
-
-      alert(
-        "Equipos encontrados: " +
-        equipos.length
-      );
-
-      if (!selector) {
-
-  alert("SIN SELECTOR");
-
-  return;
-
-}
-
-if (equipos.length < 2) {
-
-  alert(
-    "Equipos encontrados: " +
-    equipos.length
-  );
-
-  return;
-
-}
-
-      alert(
-        "Opciones: " +
-        selector.options.length
-      );
+        partido.querySelector("select");
 
       if (
-  selector.options.length < 3 ||
-  equipos.length < 3
-) {
-  return;
-}
+        !selector ||
+        selector.options.length < 3 ||
+        equipos.length < 3
+      ) {
+        return;
+      }
 
-selector.options[1].text =
-  equipos[0].textContent.trim();
+      selector.options[1].text =
+        equipos[0].textContent.trim();
 
-selector.options[2].text =
-  "PRUEBA";
-
-      alert(
-        selector.options[1].text +
-        " | " +
-        selector.options[2].text
-      );
+      selector.options[2].text =
+        equipos[2].textContent.trim();
 
     });
 
 }
+
+
 const grupos =
 [
   "A","B","C","D",
