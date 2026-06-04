@@ -2126,6 +2126,34 @@ alert(
   "Pronóstico guardado correctamente."
 );
 } 
+ async function crearResultadosOficiales() {
+
+  const partidos = {};
+
+  for (let i = 1; i <= 104; i++) {
+
+    partidos["partido_" + i] = {
+      g1: "",
+      g2: "",
+      desempate: ""
+    };
+
+  }
+
+  await setDoc(
+    doc(db, "Resultados", "Oficial"),
+    {
+      nombre: "Oficial",
+      campeon: "",
+      subcampeon: "",
+      tercerLugar: "",
+      goleador: "",
+      partidos: partidos
+    }
+  );
+
+  alert("Resultados oficiales creados.");
+}       
 function calcularGrupo(letra) {
 
   const partidos =
@@ -3030,6 +3058,7 @@ document
       
     actualizarSelectoresEmpate();    
      cargarBanderasEnPartidos();   
+       crearResultadosOficiales(); 
 </script>
 </body>
                               </html>
