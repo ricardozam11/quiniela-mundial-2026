@@ -52,6 +52,15 @@
 <div id="resultadoCampeon">
   Calculando...
 </div>
+       <section class="fase-eliminatoria">
+
+  <h2>⚽ Ganador Goleador</h2>
+
+  <div id="resultadoGoleador">
+    Pendiente
+  </div>
+
+</section> 
 <section class="fase-eliminatoria">
   <h2>🏆 Ganador Clasificados a Octavos</h2>
 
@@ -2302,6 +2311,32 @@ if (
   );
 
 }   
+        async function mostrarGanadorGoleador() {
+
+  const snap =
+    await getDoc(
+      doc(
+        db,
+        "Ganadores",
+        "Goleador"
+      )
+    );
+
+  if (!snap.exists()) return;
+
+  const datos =
+    snap.data();
+
+  document.getElementById(
+    "resultadoGoleador"
+  ).innerHTML = `
+
+    <strong>Ganador(es):</strong>
+    ${datos.ganadores.join(", ")}
+
+  `;
+
+}
     async function calcularGanadorCampeon() {
 
   const oficialDoc =
@@ -3802,6 +3837,7 @@ mostrarGanadorOctavos();
   "click",
   calcularGanadorGoleador
 );     
+  mostrarGanadorGoleador();      
 </script>
 </body>
                               </html>
