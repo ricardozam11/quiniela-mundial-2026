@@ -1982,9 +1982,17 @@ async function cargarEstadisticas() {
 
     alert(JSON.stringify(datos));
 
-    if (datos.pagado) {
-      pagados++;
-    }
+    alert(
+  "pagado=" +
+  datos.pagado +
+  " tipo=" +
+  typeof datos.pagado
+);
+
+if (datos.pagado === true) {
+  pagados++;
+  alert("SUMÓ 1");
+}
   });
 
   alert("Pagados: " + pagados);
