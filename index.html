@@ -1963,55 +1963,31 @@ const banderas = {
     .toLowerCase();
 }
 async function cargarEstadisticas() {
+async function cargarEstadisticas() {
 
-  let total = 0;
-  let pagados = 0;
-const tabla =
-  document.getElementById("tablaParticipantes");
+  alert("Entró a cargarEstadisticas");
 
-
-
-if (tabla) {
-  tabla.innerHTML = "";
-}
   const querySnapshot =
     await getDocs(collection(db, "participantes"));
 
+  alert(
+    "Participantes encontrados: " +
+    querySnapshot.size
+  );
+
+  let pagados = 0;
+
   querySnapshot.forEach((doc) => {
-
     const datos = doc.data();
-const fila = document.createElement("tr");
 
-fila.innerHTML = `
-  <td>${datos.pagado ? "✅" : "❌"}</td>
-  <td>${datos.nombre}</td>
-`;
-
-tabla.appendChild(fila);
-    total++;
+    alert(JSON.stringify(datos));
 
     if (datos.pagado) {
       pagados++;
     }
-
   });
 
-  const recaudado = pagados * 10000;
-
-const dinero =
-  document.getElementById("dineroRecaudado");
-
-
-
-if (dinero) {
-  dinero.textContent =
-    "₡ " + recaudado.toLocaleString("es-CR");
-}
-
-console.log("Participantes:", total);
-console.log("Pagados:", pagados);
-console.log("Recaudado:", recaudado);
-
+  alert("Pagados: " + pagados);
 }
 
 cargarEstadisticas();
