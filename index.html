@@ -3712,6 +3712,41 @@ if (
   `;
 
 }       
+   async function cargarListaParticipantes() {
+
+  const tabla =
+    document.getElementById("tablaParticipantes");
+
+  if (!tabla) return;
+
+  tabla.innerHTML = "";
+
+  const querySnapshot =
+    await getDocs(
+      collection(db, "participantes")
+    );
+
+  querySnapshot.forEach((documento) => {
+
+    const datos = documento.data();
+
+    const fila =
+      document.createElement("tr");
+
+    fila.innerHTML = `
+      <td>
+        ${datos.pagado ? "✅" : "❌"}
+      </td>
+      <td>
+        ${datos.nombre}
+      </td>
+    `;
+
+    tabla.appendChild(fila);
+
+  });
+
+}     
 const grupos =
 [
   "A","B","C","D",
@@ -3870,7 +3905,8 @@ mostrarGanadorOctavos();
   "click",
   calcularGanadorGoleador
 );     
-  mostrarGanadorGoleador();      
+  mostrarGanadorGoleador();   
+        cargarListaParticipantes();
 </script>
 </body>
                               </html>
