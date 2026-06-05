@@ -2387,15 +2387,16 @@ if (
 
   const datos = docu.data();
 
-  if (
-    datos.campeon === campeonOficial
-  ) {
+  
 
-    acertaronCampeon.push(datos);
+});if (
+  limpiarEquipo(datos.campeon) ===
+  limpiarEquipo(campeonOficial)
+) {
 
-  }
+  acertaronCampeon.push(datos);
 
-});
+}
 
   let ganadores = [];
 
