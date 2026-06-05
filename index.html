@@ -1935,6 +1935,12 @@ const banderas = {
 
 };
      const terceros = {};   
+        function limpiarEquipo(nombre) {
+  return (nombre || "")
+    .replace(/[^\p{L}\p{N}\s]/gu, "")
+    .trim()
+    .toLowerCase();
+}
 async function cargarEstadisticas() {
 
   let total = 0;
@@ -2336,15 +2342,11 @@ if (
       docu.data();
 
     if (
-      datos.campeon ===
-      campeonOficial
-    ) {
-
-      acertaronCampeon.push(
-        datos
-      );
-
-    }
+  limpiarEquipo(datos.campeon) ===
+  limpiarEquipo(campeonOficial)
+) {
+  acertaronCampeon.push(datos);
+}
 
   });
 
@@ -2355,11 +2357,11 @@ if (
   ) {
 
     ganadores =
-      acertaronCampeon.filter(
-        p =>
-          p.subcampeon ===
-          subcampeonOficial
-      );
+  acertaronCampeon.filter(
+    p =>
+      limpiarEquipo(p.subcampeon) ===
+      limpiarEquipo(subcampeonOficial)
+  );
 
     if (
       ganadores.length === 0
