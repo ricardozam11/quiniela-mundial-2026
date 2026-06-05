@@ -1988,10 +1988,18 @@ alert("Leyendo colección participantes");
   );
 
     alert(
-  "pagado=" +
-  datos.pagado +
-  " tipo=" +
-  typeof datos.pagado
+  "Claves: " +
+  Object.keys(datos).join(", ")
+);
+
+alert(
+  "Valor pagado: " +
+  JSON.stringify(datos.pagado)
+);
+
+alert(
+  "Objeto completo: " +
+  JSON.stringify(datos, null, 2)
 );
 
 if (datos.pagado === true) {
