@@ -2386,11 +2386,7 @@ if (
   participantes.forEach(docu => {
 
     const datos = docu.data();
-alert(
-  datos.nombre +
-  "\nCampeón: " + datos.campeon +
-  "\nOficial: " + campeonOficial
-);
+alert(JSON.stringify(datos));
     console.log(
       datos.nombre,
       JSON.stringify(datos.campeon),
