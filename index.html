@@ -1964,49 +1964,25 @@ const banderas = {
 }
 async function cargarEstadisticas() {
 
-
-  alert("Entró a cargarEstadisticas");
-alert("Leyendo colección participantes");
   const querySnapshot =
     await getDocs(collection(db, "participantes"));
-
-  alert(
-    "Participantes encontrados: " +
-    querySnapshot.size
-  );
 
   let pagados = 0;
 
   querySnapshot.forEach((doc) => {
 
-  const datos = doc.data();
+    const datos = doc.data();
 
-  alert(
-    "ID=" + doc.id +
-    "\n" +
-    JSON.stringify(datos)
-  );
+    if (datos.pagado === true) {
+      pagados++;
+    }
 
-    alert(
-  "Claves: " +
-  Object.keys(datos).join(", ")
-);
-
-alert(
-  "Valor pagado: " +
-  JSON.stringify(datos.pagado)
-);
-
-alert(
-  "Objeto completo: " +
-  JSON.stringify(datos, null, 2)
-);
-
-if (datos.pagado === true) {
-  pagados++;
-  alert("SUMÓ 1");
-}
   });
+
+  const cuota = 5000;
+
+  document.getElementById("dineroRecaudado").textContent =
+    "₡ " + (pagados * cuota).toLocaleString("es-CR");
 
   alert("Pagados: " + pagados);
 }
