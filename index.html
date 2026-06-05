@@ -2478,10 +2478,31 @@ if (
     const datos =
       docu.data();
 
-    if (
-      limpiarEquipo(datos.goleador) ===
-      limpiarEquipo(goleadorOficial)
-    ) {
+    const goleadorParticipante =
+  (datos.goleador || "").trim();
+
+const goleadorReal =
+  (goleadorOficial || "").trim();
+if (
+  datos.goleador &&
+  goleadorOficial &&
+  limpiarEquipo(datos.goleador) ===
+  limpiarEquipo(goleadorOficial)
+) {
+
+  ganadores.push(
+    datos.nombre
+  );
+
+}
+ {
+
+  ganadores.push(
+    datos.nombre
+  );
+
+}
+    {
 
       ganadores.push(
         datos.nombre
