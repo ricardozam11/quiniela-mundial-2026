@@ -49,7 +49,9 @@
 
   <div id="tablaRanking"></div>
 </section>
-
+<div id="resultadoCampeon">
+  Calculando...
+</div>
 <section class="fase-eliminatoria">
   <h2>🏆 Ganador Clasificados a Octavos</h2>
 
@@ -2400,6 +2402,34 @@ if (
   );
 
 }    
+    async function mostrarGanadorCampeon() {
+
+  const snap = await getDoc(
+    doc(db, "Ganadores", "Campeon")
+  );
+
+  if (!snap.exists()) {
+
+    document.getElementById(
+      "resultadoCampeon"
+    ).innerHTML =
+      "Aún no se ha calculado.";
+
+    return;
+  }
+
+  const datos = snap.data();
+
+  document.getElementById(
+    "resultadoCampeon"
+  ).innerHTML = `
+    <strong>Ganador(es):</strong>
+    ${datos.ganadores.join(", ")}
+    <br>
+    <strong>Aciertos:</strong>
+    ${datos.puntos}
+  `;
+}    
  async function calcularGanadorMarcadores() {
 
   const snapshot =
@@ -3685,7 +3715,8 @@ document
   mostrarGanadorOctavos
 );  
 mostrarRanking();
-mostrarGanadorOctavos();        
+mostrarGanadorOctavos();     
+        mostrarGanadorCampeon();
 </script>
 </body>
                               </html>
