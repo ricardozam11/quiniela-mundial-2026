@@ -2483,42 +2483,25 @@ if (
 
   participantes.forEach(docu => {
 
-    const datos =
-      docu.data();
+  const datos = docu.data();
 
-    const goleadorParticipante =
-  (datos.goleador || "").trim();
-
-const goleadorReal =
-  (goleadorOficial || "").trim();
-if (
-  datos.goleador &&
-  goleadorOficial &&
-  limpiarEquipo(datos.goleador) ===
-  limpiarEquipo(goleadorOficial)
-) {
-
-  ganadores.push(
-    datos.nombre
+  console.log(
+    "Participante:",
+    datos.nombre,
+    "| Campeón:",
+    JSON.stringify(datos.campeon),
+    "| Oficial:",
+    JSON.stringify(campeonOficial)
   );
 
-}
- {
+  if (
+    limpiarEquipo(datos.campeon) ===
+    limpiarEquipo(campeonOficial)
+  ) {
+    acertaronCampeon.push(datos);
+  }
 
-  ganadores.push(
-    datos.nombre
-  );
-
-}
-    {
-
-      ganadores.push(
-        datos.nombre
-      );
-
-    }
-
-  });
+});
 
   await setDoc(
     doc(
