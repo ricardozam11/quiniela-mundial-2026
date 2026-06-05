@@ -1820,6 +1820,9 @@
              <button id="calcularRanking">
   Calcular Ranking
 </button>
+          <button id="calcularCampeon">
+  Calcular Campeón
+</button>   
             <button id="ganadorMarcadores">
   🏆 Ganador Marcadores
                 <button id="calcularOctavos">
@@ -2288,6 +2291,113 @@ if (
   );
 
 }   
+    async function calcularGanadorCampeon() {
+
+  const oficialDoc =
+    await getDoc(
+      doc(
+        db,
+        "Resultados",
+        "Oficial"
+      )
+    );
+
+  if (!oficialDoc.exists()) {
+
+    alert(
+      "No existen resultados oficiales."
+    );
+
+    return;
+  }
+
+  const oficial =
+    oficialDoc.data();
+
+  const campeonOficial =
+    oficial.campeon || "";
+
+  const subcampeonOficial =
+    oficial.subcampeon || "";
+
+  const participantes =
+    await getDocs(
+      collection(
+        db,
+        "Pronósticos"
+      )
+    );
+
+  let acertaronCampeon = [];
+
+  participantes.forEach(docu => {
+
+    const datos =
+      docu.data();
+
+    if (
+      datos.campeon ===
+      campeonOficial
+    ) {
+
+      acertaronCampeon.push(
+        datos
+      );
+
+    }
+
+  });
+
+  let ganadores = [];
+
+  if (
+    acertaronCampeon.length > 0
+  ) {
+
+    ganadores =
+      acertaronCampeon.filter(
+        p =>
+          p.subcampeon ===
+          subcampeonOficial
+      );
+
+    if (
+      ganadores.length === 0
+    ) {
+
+      ganadores =
+        acertaronCampeon;
+
+    }
+
+    await setDoc(
+      doc(
+        db,
+        "Ganadores",
+        "Campeon"
+      ),
+      {
+        ganadores:
+          ganadores.map(
+            g => g.nombre
+          ),
+        puntos:
+          ganadores.length
+      }
+    );
+
+    alert(
+      "Ganador de Campeón calculado."
+    );
+
+    return;
+  }
+
+  alert(
+    "Nadie acertó el campeón. Más adelante agregaremos el desempate por posición y goles."
+  );
+
+}    
  async function calcularGanadorMarcadores() {
 
   const snapshot =
@@ -3535,6 +3645,14 @@ document
   "click",
   calcularRanking
 ); 
+   document
+  .getElementById(
+    "calcularCampeon"
+  )
+  ?.addEventListener(
+    "click",
+    calcularGanadorCampeon
+  );     
   document
 .getElementById(
   "ganadorMarcadores"
