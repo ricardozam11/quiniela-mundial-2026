@@ -1964,29 +1964,73 @@ const banderas = {
 }
 async function cargarEstadisticas() {
 
-  const querySnapshot =
-    await getDocs(collection(db, "participantes"));
+  try {
 
-  let pagados = 0;
+    // Leer participantes
+    const querySnapshot =
+      await getDocs(collection(db, "participantes"));
 
-  querySnapshot.forEach((doc) => {
+    let pagados = 0;
 
-    const datos = doc.data();
+    querySnapshot.forEach((docu) => {
 
-    if (datos.pagado === true) {
-      pagados++;
+      const datos = docu.data();
+
+      if (datos.pagado === true) {
+        pagados++;
+      }
+
+    });
+
+    // Leer configuración
+    const configRef =
+      doc(db, "Configuración", "General");
+
+    const configSnap =
+      await getDoc(configRef);
+
+    let cuota = 0;
+
+    if (configSnap.exists()) {
+
+      const config =
+        configSnap.data();
+
+      cuota = config["Cuota entrada"] || 0;
+
     }
 
-  });
+    // Calcular total recaudado
+    const total =
+      pagados * cuota;
 
-  const cuota = 5000;
+    // Actualizar pantalla
+    document.getElementById(
+      "dineroRecaudado"
+    ).textContent =
+      "₡ " + total.toLocaleString("es-CR");
 
-  document.getElementById("dineroRecaudado").textContent =
-    "₡ " + (pagados * cuota).toLocaleString("es-CR");
+    console.log(
+      "Pagados:",
+      pagados,
+      "Cuota:",
+      cuota,
+      "Total:",
+      total
+    );
 
-  alert("Pagados: " + pagados);
+  } catch (error) {
+
+    console.error(
+      "Error cargando estadísticas:",
+      error
+    );
+
+  }
+
 }
 
+// Ejecutar al cargar la página
 cargarEstadisticas();
 async function cargarParticipantesSelector() {
 
