@@ -1825,6 +1825,9 @@
           <button id="calcularCampeon">
   Calcular Campeón
 </button>   
+             <button id="calcularGoleador">
+  ⚽ Calcular Goleador
+</button>
             <button id="ganadorMarcadores">
   🏆 Ganador Marcadores
                 <button id="calcularOctavos">
@@ -2402,6 +2405,80 @@ if (
   );
 
 }    
+        async function calcularGanadorGoleador() {
+
+  const oficialDoc =
+    await getDoc(
+      doc(
+        db,
+        "Resultados",
+        "Oficial"
+      )
+    );
+
+  if (!oficialDoc.exists()) {
+
+    alert(
+      "No existen resultados oficiales."
+    );
+
+    return;
+  }
+
+  const goleadorOficial =
+    oficialDoc.data().goleador || "";
+
+  const participantes =
+    await getDocs(
+      collection(
+        db,
+        "Pronósticos"
+      )
+    );
+
+  let ganadores = [];
+
+  participantes.forEach(docu => {
+
+    const datos =
+      docu.data();
+
+    if (
+      limpiarEquipo(datos.goleador) ===
+      limpiarEquipo(goleadorOficial)
+    ) {
+
+      ganadores.push(
+        datos.nombre
+      );
+
+    }
+
+  });
+
+  await setDoc(
+    doc(
+      db,
+      "Ganadores",
+      "Goleador"
+    ),
+    {
+      ganadores:
+        ganadores,
+
+      puntos:
+        ganadores.length,
+
+      actualizado:
+        serverTimestamp()
+    }
+  );
+
+  alert(
+    "Ganador de goleador calculado."
+  );
+
+}
     async function mostrarGanadorCampeon() {
 
   const snap = await getDoc(
@@ -3717,6 +3794,14 @@ document
 mostrarRanking();
 mostrarGanadorOctavos();     
         mostrarGanadorCampeon();
+   document
+.getElementById(
+  "calcularGoleador"
+)
+?.addEventListener(
+  "click",
+  calcularGanadorGoleador
+);     
 </script>
 </body>
                               </html>
