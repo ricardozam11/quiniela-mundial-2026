@@ -3918,6 +3918,25 @@ mostrarGanadorOctavos();
 );     
   mostrarGanadorGoleador();   
         cargarListaParticipantes();
+     function mostrarPremios(total) {
+
+  document.getElementById("premioCampeon").textContent =
+    "🏆 Campeón: ₡ " +
+    Math.round(total * 0.60).toLocaleString("es-CR");
+
+  document.getElementById("premioRanking").textContent =
+    "📊 Ranking: ₡ " +
+    Math.round(total * 0.20).toLocaleString("es-CR");
+
+  document.getElementById("premioOctavos").textContent =
+    "⚽ Clasificados a Octavos: ₡ " +
+    Math.round(total * 0.10).toLocaleString("es-CR");
+
+  document.getElementById("premioGoleador").textContent =
+    "🥅 Goleador: ₡ " +
+    Math.round(total * 0.10).toLocaleString("es-CR");
+
+}   
 </script>
 </body>
                               </html>
