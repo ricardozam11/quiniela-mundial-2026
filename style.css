@@ -205,4 +205,92 @@ tr:nth-child(odd) {
     font-size: 0.8rem;
     flex-shrink: 0;
 }
+/* ========================= */
+/* AJUSTES RESPONSIVE FINAL  */
+/* ========================= */
 
+/* Tablas desplazables en móviles */
+table {
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+}
+
+/* Evita que el texto de premios se corte */
+.contador-recaudado p {
+    margin: 0.4rem 0;
+    word-break: break-word;
+}
+
+/* Botón guardar al final */
+.contenedor-guardar {
+    width: 100%;
+    text-align: center;
+    margin: 1.5rem 0;
+}
+
+#guardar {
+    width: 100%;
+    max-width: 450px;
+    padding: 14px;
+    border: none;
+    border-radius: 8px;
+    background-color: #ffd700;
+    color: #1a2b4a;
+    font-size: 1rem;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+/* Celulares */
+@media (max-width: 768px) {
+
+    html,
+    body {
+        padding: 0.3rem;
+    }
+
+    .grupos-contenedor {
+        grid-template-columns: 1fr;
+    }
+
+    .grupo,
+    .fase-eliminatoria,
+    .contador-recaudado {
+        width: 100%;
+    }
+
+    .datos-partido {
+        font-size: 0.75rem;
+    }
+
+    .input-marcador {
+        width: 32px;
+        height: 28px;
+        font-size: 0.8rem;
+    }
+
+    h1 {
+        font-size: 1.4rem;
+    }
+
+    h2 {
+        font-size: 1.2rem;
+    }
+
+    h3 {
+        font-size: 1rem;
+    }
+}
+
+/* Pantallas grandes */
+@media (min-width: 1200px) {
+
+    .contenedor-principal {
+        max-width: 1400px;
+    }
+
+    .grupos-contenedor {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
