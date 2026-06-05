@@ -3862,9 +3862,15 @@ document
 
   });   
       
-    actualizarSelectoresEmpate();    
-     cargarBanderasEnPartidos();   
-  alert("Llegó a los botones");      
+     alert("Antes de actualizar");
+
+actualizarSelectoresEmpate();
+
+alert("Después de actualizar");
+
+cargarBanderasEnPartidos();
+
+alert("Después de banderas");     
      document
 .getElementById(
   "calcularRanking"
