@@ -1966,7 +1966,7 @@ async function cargarEstadisticas() {
 
 
   alert("Entró a cargarEstadisticas");
-
+alert("Leyendo colección participantes");
   const querySnapshot =
     await getDocs(collection(db, "participantes"));
 
@@ -1978,9 +1978,14 @@ async function cargarEstadisticas() {
   let pagados = 0;
 
   querySnapshot.forEach((doc) => {
-    const datos = doc.data();
 
-    alert(JSON.stringify(datos));
+  const datos = doc.data();
+
+  alert(
+    "ID=" + doc.id +
+    "\n" +
+    JSON.stringify(datos)
+  );
 
     alert(
   "pagado=" +
