@@ -2385,17 +2385,17 @@ if (
 
   participantes.forEach(docu => {
 
-    const datos =
-      docu.data();
+  const datos = docu.data();
 
-    if (
-  limpiarEquipo(datos.campeon) ===
-  limpiarEquipo(campeonOficial)
-) {
-  acertaronCampeon.push(datos);
-}
+  if (
+    datos.campeon === campeonOficial
+  ) {
 
-  });
+    acertaronCampeon.push(datos);
+
+  }
+
+});
 
   let ganadores = [];
 
