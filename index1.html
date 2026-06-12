@@ -2080,34 +2080,41 @@ async function guardarPronostico() {
 
   const partidos = {};
 
-  document
-    .querySelectorAll(
-      ".partido, .partido-eliminatorio"
-    )
-    .forEach((partido, indice) => {
+  let numeroPartido = 1;
 
-      const inputs =
-        partido.querySelectorAll(
-          ".input-marcador"
-        );
+document
+  .querySelectorAll(
+    ".partido, .partido-eliminatorio"
+  )
+  .forEach((partido) => {
 
-      const selector =
-        partido.querySelector(
-          ".selector-ganador"
-        );
+    const inputs =
+      partido.querySelectorAll(
+        ".input-marcador"
+      );
 
-      partidos[
-        "partido_" + (indice + 1)
-      ] = {
+    // Ignorar elementos que no son partidos
+    if (inputs.length < 2) return;
 
-        g1: inputs[0]?.value || "",
-        g2: inputs[1]?.value || "",
-        desempate:
-          selector?.value || ""
+    const selector =
+      partido.querySelector(
+        ".selector-ganador"
+      );
 
-      };
+    partidos[
+      "partido_" + numeroPartido
+    ] = {
 
-    });
+      g1: inputs[0]?.value || "",
+      g2: inputs[1]?.value || "",
+      desempate:
+        selector?.value || ""
+
+    };
+
+    numeroPartido++;
+
+});
 
   const goleador =
   document.getElementById(
