@@ -3055,8 +3055,8 @@ function mostrarClasificados() {
 
   alert(mensaje);
 
-}        
-function actualizarMejoresTerceros() {
+}    
+        function actualizarMejoresTerceros() {
 
   const ranking =
     Object.values(terceros)
@@ -3074,6 +3074,7 @@ function actualizarMejoresTerceros() {
 
   window.mejoresTerceros = ranking;
 
+  // Mantener T1-T8
   for (let i = 0; i < 8; i++) {
 
     const span =
@@ -3093,7 +3094,39 @@ function actualizarMejoresTerceros() {
 
   }
 
+  // Nuevas plazas FIFA
+  const plazas = [
+    "TA",
+    "TB",
+    "TC",
+    "TD",
+    "TE",
+    "TF",
+    "TG",
+    "TH"
+  ];
+
+  for (let i = 0; i < 8; i++) {
+
+    const span =
+      document.getElementById(
+        plazas[i]
+      );
+
+    if (
+      span &&
+      ranking[i]
+    ) {
+
+      span.textContent =
+        `${banderas[ranking[i].nombre] || ""} ${ranking[i].nombre}`;
+
+    }
+
+  }
+
 }
+
         function actualizarGanadores() {
 
   for (let i = 1; i <= 16; i++) {
@@ -3165,77 +3198,10 @@ else {
     }
 
   }
+} 
+  } 
+        } 
 
-function actualizarMejoresTerceros() {
-
-  const ranking =
-    Object.values(terceros)
-      .sort((a, b) => {
-
-        if (b.pts !== a.pts)
-          return b.pts - a.pts;
-
-        if (b.dif !== a.dif)
-          return b.dif - a.dif;
-
-        return b.gf - a.gf;
-
-      });
-
-  window.mejoresTerceros = ranking;
-
-  // Mantener T1-T8
-  for (let i = 0; i < 8; i++) {
-
-    const span =
-      document.getElementById(
-        "T" + (i + 1)
-      );
-
-    if (
-      span &&
-      ranking[i]
-    ) {
-
-      span.textContent =
-        `${banderas[ranking[i].nombre] || ""} ${ranking[i].nombre}`;
-
-    }
-
-  }
-
-  // Nuevas plazas FIFA
-  const plazas = [
-    "TA",
-    "TB",
-    "TC",
-    "TD",
-    "TE",
-    "TF",
-    "TG",
-    "TH"
-  ];
-
-  for (let i = 0; i < 8; i++) {
-
-    const span =
-      document.getElementById(
-        plazas[i]
-      );
-
-    if (
-      span &&
-      ranking[i]
-    ) {
-
-      span.textContent =
-        `${banderas[ranking[i].nombre] || ""} ${ranking[i].nombre}`;
-
-    }
-
-  }
-
-}
         
 function actualizarGanadoresOF() {
 
