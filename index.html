@@ -1961,6 +1961,21 @@ const banderas = {
 
 };
      const terceros = {};   
+        function obtenerClaveTerceros() {
+
+    return Object.keys(terceros)
+        .sort()
+        .join("");
+
+}
+
+function buscarCombinacion() {
+
+    const clave = obtenerClaveTerceros();
+
+    return combinacionesTerceros[clave] || null;
+
+}
         function limpiarEquipo(nombre) {
   return (nombre || "")
     .replace(/[^\p{L}\p{N}\s]/gu, "")
