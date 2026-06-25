@@ -3166,36 +3166,75 @@ else {
 
   }
 
-}
+function actualizarMejoresTerceros() {
 
-    const destino =
-  document.getElementById(
-    "GP" + i
-  );
+  const ranking =
+    Object.values(terceros)
+      .sort((a, b) => {
 
+        if (b.pts !== a.pts)
+          return b.pts - a.pts;
 
+        if (b.dif !== a.dif)
+          return b.dif - a.dif;
 
-if (
-  destino &&
-  ganador !== ""
-) {
+        return b.gf - a.gf;
 
-  destino.textContent =
-    ganador;
+      });
 
-  actualizarSelectoresEmpate();
+  window.mejoresTerceros = ranking;
 
-}
+  // Mantener T1-T8
+  for (let i = 0; i < 8; i++) {
+
+    const span =
+      document.getElementById(
+        "T" + (i + 1)
+      );
+
+    if (
+      span &&
+      ranking[i]
+    ) {
+
+      span.textContent =
+        `${banderas[ranking[i].nombre] || ""} ${ranking[i].nombre}`;
+
+    }
 
   }
-actualizarGanadoresOF();
 
+  // Nuevas plazas FIFA
+  const plazas = [
+    "TA",
+    "TB",
+    "TC",
+    "TD",
+    "TE",
+    "TF",
+    "TG",
+    "TH"
+  ];
 
-actualizarGanadoresCF();
+  for (let i = 0; i < 8; i++) {
 
+    const span =
+      document.getElementById(
+        plazas[i]
+      );
 
-actualizarGanadoresSF();
-            
+    if (
+      span &&
+      ranking[i]
+    ) {
+
+      span.textContent =
+        `${banderas[ranking[i].nombre] || ""} ${ranking[i].nombre}`;
+
+    }
+
+  }
+
 }
         
 function actualizarGanadoresOF() {
