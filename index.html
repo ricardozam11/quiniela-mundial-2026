@@ -1874,26 +1874,28 @@
     <script type="module">
 
 import { db } from "./firestore.js";
-        
 import { combinacionesTerceros } from "./combinacionesTerceros.js";
-alert("INICIO DEL SCRIPT"); 
-        import {
+
+import {
   collection,
-  getDocs, 
-    doc, 
-    getDoc, 
-    setDoc,
-    onSnapshot, 
-    serverTimestamp
-}
-   window.onerror = function (msg, src, line, col, err) {
+  getDocs,
+  doc,
+  getDoc,
+  setDoc,
+  onSnapshot,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+alert("INICIO DEL SCRIPT");
+
+window.onerror = function (msg, src, line, col, err) {
   alert(
     "ERROR:\n" +
     msg +
     "\nLínea: " + line
   );
-}; 
-    from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+};
+
 const banderas = {
 
   // GRUPO A
