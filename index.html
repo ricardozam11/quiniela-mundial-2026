@@ -1845,6 +1845,9 @@
 
     <button id="calcularOctavos">🏆 Calcular Octavos</button>
 
+    <button onclick="mostrarClasificados()">
+  ⚽ Ver Clasificados
+</button>         
 </div>    
  
 </section>
@@ -2978,7 +2981,81 @@ actualizarSelectoresEmpate();
 
 }
 actualizarMejoresTerceros();
+return tablaOrdenada;    
 }
+function mostrarClasificados() {
+
+  const gruposLetras = [
+    "A","B","C","D","E","F",
+    "G","H","I","J","K","L"
+  ];
+
+  let clasificados = [];
+  let tercerosLista = [];
+
+  gruposLetras.forEach(letra => {
+
+    const tabla =
+      calcularGrupo(letra);
+
+    if (!tabla) return;
+
+    clasificados.push(
+      tabla[0][0]
+    );
+
+    clasificados.push(
+      tabla[1][0]
+    );
+
+    tercerosLista.push({
+      grupo: letra,
+      nombre: tabla[2][0],
+      pts: tabla[2][1].pts,
+      dif:
+        tabla[2][1].gf -
+        tabla[2][1].gc,
+      gf: tabla[2][1].gf
+    });
+
+  });
+
+  tercerosLista.sort((a,b)=>
+
+    b.pts - a.pts ||
+
+    b.dif - a.dif ||
+
+    b.gf - a.gf
+
+  );
+
+  const mejores =
+    tercerosLista.slice(0,8);
+
+  let mensaje =
+    "CLASIFICADOS DIRECTOS\n\n";
+
+  clasificados.forEach(equipo => {
+
+    mensaje +=
+      equipo + "\n";
+
+  });
+
+  mensaje +=
+    "\nMEJORES TERCEROS\n\n";
+
+  mejores.forEach((equipo,i)=>{
+
+    mensaje +=
+      `${i+1}. ${equipo.nombre}\n`;
+
+  });
+
+  alert(mensaje);
+
+}        
 function actualizarMejoresTerceros() {
 
   const ranking =
