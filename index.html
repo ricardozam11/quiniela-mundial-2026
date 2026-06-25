@@ -1882,6 +1882,7 @@ import {
     doc, 
     getDoc, 
     setDoc,
+    onSnapshot, 
     serverTimestamp
 }
     from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
@@ -2436,9 +2437,7 @@ if (
 
   }
 
-  alert(
-    "Ranking calculado correctamente."
-  );
+await mostrarRanking();  
 
 }   
         async function mostrarGanadorGoleador() {
@@ -2843,6 +2842,8 @@ alert(
       partidos: partidos
     }
   );
+   alert("Resultados oficiales creados.");
+}         
 async function calcularGanadorOctavos() {
 
   const resultadosDoc = await getDoc(
@@ -2925,8 +2926,7 @@ async function calcularGanadorOctavos() {
   );
 
 }
-  alert("Resultados oficiales creados.");
-}       
+  
 function calcularGrupo(letra) {
 
   const partidos =
