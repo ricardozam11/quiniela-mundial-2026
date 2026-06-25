@@ -2057,11 +2057,100 @@ async function cargarParticipantesSelector() {
 
   });
 
-}        
+}    
+        
+async function cargarPronosticoParticipante() {
 
+  const participante =
+    document.getElementById(
+      "participanteSeleccionado"
+    ).value;
 
-cargarParticipantesSelector(); 
-       document
+  if (!participante) return;
+
+  const snap =
+    await getDoc(
+      doc(
+        db,
+        "Pronósticos",
+        participante
+      )
+    );
+
+  if (!snap.exists()) {
+    alert(
+      "Este participante no tiene pronóstico."
+    );
+    return;
+  }
+
+  const datos = snap.data();
+
+  const partidosGuardados =
+    datos.partidos || {};
+
+  document
+    .querySelectorAll(
+      ".partido, .partido-eliminatorio"
+    )
+    .forEach((partido, indice) => {
+
+      const datosPartido =
+        partidosGuardados[
+          "partido_" + (indice + 1)
+        ];
+
+      if (!datosPartido) return;
+
+      const inputs =
+        partido.querySelectorAll(
+          ".input-marcador"
+        );
+
+      if (inputs[0]) {
+        inputs[0].value =
+          datosPartido.g1 || "";
+      }
+
+      if (inputs[1]) {
+        inputs[1].value =
+          datosPartido.g2 || "";
+      }
+
+      const selector =
+        partido.querySelector(
+          ".selector-ganador"
+        );
+
+      if (
+        selector &&
+        datosPartido.desempate
+      ) {
+        selector.value =
+          datosPartido.desempate;
+      }
+
+    });
+
+  actualizarGanadores();
+  actualizarGanadoresOF();
+  actualizarGanadoresCF();
+  actualizarGanadoresSF();
+  actualizarSelectoresEmpate();
+}
+
+cargarParticipantesSelector();
+
+document
+.getElementById(
+  "participanteSeleccionado"
+)
+.addEventListener(
+  "change",
+  cargarPronosticoParticipante
+);
+
+document
 .getElementById("guardarPronostico")
 .addEventListener(
   "click",
