@@ -1885,6 +1885,13 @@ import {
     onSnapshot, 
     serverTimestamp
 }
+   window.onerror = function (msg, src, line, col, err) {
+  alert(
+    "ERROR:\n" +
+    msg +
+    "\nLínea: " + line
+  );
+}; 
     from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 const banderas = {
 
