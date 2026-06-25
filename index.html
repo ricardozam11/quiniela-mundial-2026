@@ -3918,7 +3918,24 @@ if (
 
   `;
 
-}       
+}     
+  function escucharResultadosOficiales() {
+
+  onSnapshot(
+
+    doc(db, "Resultados", "Oficial"),
+
+    async () => {
+
+      console.log("Resultados oficiales cambiaron");
+
+      await calcularRanking();
+
+    }
+
+  );
+
+}      
 const grupos =
 [
   "A","B","C","D",
