@@ -2101,7 +2101,13 @@ async function cargarPronosticoParticipante() {
   }
 
   const datos = snap.data();
+const inputGoleador =
+  document.getElementById("goleador");
 
+if (inputGoleador) {
+  inputGoleador.value =
+    datos.goleador || "";
+}
   const partidosGuardados =
     datos.partidos || {};
 
