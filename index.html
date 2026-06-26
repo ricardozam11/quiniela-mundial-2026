@@ -1876,6 +1876,13 @@
 window.onerror = function (msg, src, line) {
   alert("ERROR: " + msg + " Línea: " + line);
 };
+   window.addEventListener("error", e => {
+  alert("ERROR: " + e.message);
+});
+
+window.addEventListener("unhandledrejection", e => {
+  alert("PROMESA: " + e.reason);
+});     
 import { db } from "./firestore.js";
         alert("1");
 import { combinacionesTerceros } from "./combinacionesTerceros.js";
