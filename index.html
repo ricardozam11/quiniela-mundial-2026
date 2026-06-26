@@ -1998,8 +1998,7 @@ alert("C");
     return combinacionesTerceros[clave] || null;
 
 }
-    alert("Aquí");
-   </script>     
+         
         function limpiarEquipo(nombre) {
   return (nombre || "")
     .replace(/[^\p{L}\p{N}\s]/gu, "")
@@ -2060,8 +2059,9 @@ console.log("Recaudado:", recaudado);
 }
 
 //cargarEstadisticas();
+    alert("Antes Cargar participantes") ;
 async function cargarParticipantesSelector() {
-
+alert("ENTRO") ;
   const selector =
     document.getElementById(
       "participanteSeleccionado"
@@ -2099,7 +2099,8 @@ async function cargarParticipantesSelector() {
   });
 
 }    
-        
+    alert("Aquí");
+   </script>    
 async function cargarPronosticoParticipante() {
 
   const participante =
