@@ -1872,33 +1872,29 @@
 </div>
     </div>
     <script type="module">
-
+window.onerror = function (msg, src, line) {
+  alert("ERROR: " + msg + " Línea: " + line);
+};
 import { db } from "./firestore.js";
         alert("1");
 import { combinacionesTerceros } from "./combinacionesTerceros.js";
 alert("2");
-//import {
-//  collection,
-//  getDocs,
-//  doc,
-//  getDoc,
-//  setDoc,
-//  onSnapshot,
- // serverTimestamp
-//} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+import {
+  collection,
+  getDocs,
+  doc,
+  getDoc,
+  setDoc,
+  onSnapshot,
+  serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 
 
-    </script>
-window.onerror = function (msg, src, line, col, err) {
-  alert(
-    "ERROR:\n" +
-    msg +
-    "\nLínea: " + line
-  );
+    
 };
 
 const banderas = {
-
+alert("A");
   // GRUPO A
   "México": "🇲🇽",
   "Sudáfrica": "🇿🇦",
@@ -1973,6 +1969,7 @@ const banderas = {
 
 };
      const terceros = {};   
+        alert("B");
         function obtenerClaveTerceros() {
 
     return Object.keys(terceros)
@@ -1984,7 +1981,7 @@ const banderas = {
 function buscarCombinacion() {
 
     const clave = obtenerClaveTerceros();
-
+alert("C");
     return combinacionesTerceros[clave] || null;
 
 }
