@@ -1873,6 +1873,20 @@
 </div>
     </div>
     <script type="module">
+
+import { db } from "./firestore.js";
+        
+import { combinacionesTerceros } from "./combinacionesTerceros.js";
+
+import {
+  collection,
+  getDocs,
+ doc,
+ getDoc,
+  setDoc,
+  onSnapshot,
+ serverTimestamp
+} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
 window.onerror = function (msg, src, line) {
   alert("ERROR: " + msg + " Línea: " + line);
 };
@@ -1883,24 +1897,10 @@ window.onerror = function (msg, src, line) {
 window.addEventListener("unhandledrejection", e => {
   alert("PROMESA: " + e.reason);
 });     
-import { db } from "./firestore.js";
-        alert("1");
-import { combinacionesTerceros } from "./combinacionesTerceros.js";
-alert("2");
-//import {
- // collection,
-//  getDocs,
-//  doc,
-//  getDoc,
-//  setDoc,
-//  onSnapshot,
-//  serverTimestamp
-//} from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
-
 
     
 
-alert("A");
+alert("1");
 const banderas = {
 
   // GRUPO A
