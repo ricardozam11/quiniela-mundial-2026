@@ -1874,13 +1874,13 @@
     </div>
     
 <script type="module">
-alert("A");
+
 
 import { db } from "./firestore.js";
-    alert("B");    
+        
 import { combinacionesTerceros } from "./combinacionesTerceros.js";
-    alert("C");
-</script>
+    
+
 import {
   collection,
   getDocs,
@@ -1890,6 +1890,8 @@ import {
   onSnapshot,
  serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+    alert("Aquí");
+   </script> 
 window.onerror = function (msg, src, line) {
   alert("ERROR: " + msg + " Línea: " + line);
 };
