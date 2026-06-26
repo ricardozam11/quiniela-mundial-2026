@@ -2099,8 +2099,7 @@ alert("ENTRO") ;
   });
 
 }    
-    alert("Aquí");
-   </script>    
+        
 async function cargarPronosticoParticipante() {
 
   const participante =
@@ -2194,9 +2193,9 @@ if (inputs[1]) {
   actualizarGanadoresSF();
   actualizarSelectoresEmpate();
 }
-
+alert("Bloque1") ;
 cargarParticipantesSelector();
-
+alert("Bloque2") ;
 document
 .getElementById(
   "participanteSeleccionado"
@@ -2205,7 +2204,7 @@ document
   "change",
   cargarPronosticoParticipante
 );
-
+alert("Bloque3") ;
 document
 .getElementById("guardarPronostico")
 .addEventListener(
