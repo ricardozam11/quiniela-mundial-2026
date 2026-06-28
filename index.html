@@ -2157,10 +2157,12 @@ if (inputGoleador) {
     )
     .forEach((partido, indice) => {
 
-      const datosPartido =
-        partidosGuardados[
-          "partido_" + (indice + 1)
-        ];
+      const DESFASE = 2;
+
+const datosPartido =
+  partidosGuardados[
+    "partido_" + (indice + 1 + DESFASE)
+  ];
 
       if (!datosPartido) return;
 
