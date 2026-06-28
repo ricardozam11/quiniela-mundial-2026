@@ -2197,6 +2197,25 @@ alert("Grupos recalculados");
   actualizarGanadoresCF();
   actualizarGanadoresSF();
   actualizarSelectoresEmpate();
+   // Bloquear fase de grupos
+document
+  .querySelectorAll("#grupoA .input-marcador,\
+#grupoB .input-marcador,\
+#grupoC .input-marcador,\
+#grupoD .input-marcador,\
+#grupoE .input-marcador,\
+#grupoF .input-marcador,\
+#grupoG .input-marcador,\
+#grupoH .input-marcador,\
+#grupoI .input-marcador,\
+#grupoJ .input-marcador,\
+#grupoK .input-marcador,\
+#grupoL .input-marcador")
+  .forEach(input => {
+
+    input.disabled = true;
+
+}); 
 }
 
 cargarParticipantesSelector();
