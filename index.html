@@ -2125,35 +2125,35 @@ async function cargarPronosticoParticipante() {
   }
 
   const datos = snap.data();
-const inputGoleador =
-  document.getElementById("goleador");
 
-if (inputGoleador) {
-  inputGoleador.value =
-    datos.goleador || "";
-}
+  const inputGoleador =
+    document.getElementById("goleador");
+
+  if (inputGoleador) {
+    inputGoleador.value =
+      datos.goleador || "";
+  }
+
   const partidosGuardados =
     datos.partidos || {};
 
   document
     .querySelectorAll(
-      ".partido, .partido-eliminatorio"
+      ".partido, \
+#P1,#P2,#P3,#P4,#P5,#P6,#P7,#P8,\
+#P9,#P10,#P11,#P12,#P13,#P14,#P15,#P16,\
+#OFP1,#OFP2,#OFP3,#OFP4,#OFP5,#OFP6,#OFP7,#OFP8,\
+#PC1,#PC2,#PC3,#PC4,\
+#PS1,#PS2,\
+#PTL,\
+#Final"
     )
     .forEach((partido, indice) => {
 
-      const DESFASE = -1;
-
-let numero = indice + 1 + DESFASE;
-
-// Ajustar solo eliminatorias
-if (partido.classList.contains("partido-eliminatorio")) {
-  numero -= 0;
-}
-
-const datosPartido =
-  partidosGuardados[
-    "partido_" + numero
-  ];
+      const datosPartido =
+        partidosGuardados[
+          "partido_" + (indice + 1)
+        ];
 
       if (!datosPartido) return;
 
@@ -2163,22 +2163,22 @@ const datosPartido =
         );
 
       if (inputs[0]) {
-  inputs[0].value =
-    datosPartido.g1 || "";
+        inputs[0].value =
+          datosPartido.g1 || "";
 
-  inputs[0].dispatchEvent(
-    new Event("input")
-  );
-}
+        inputs[0].dispatchEvent(
+          new Event("input")
+        );
+      }
 
-if (inputs[1]) {
-  inputs[1].value =
-    datosPartido.g2 || "";
+      if (inputs[1]) {
+        inputs[1].value =
+          datosPartido.g2 || "";
 
-  inputs[1].dispatchEvent(
-    new Event("input")
-  );
-}
+        inputs[1].dispatchEvent(
+          new Event("input")
+        );
+      }
 
       const selector =
         partido.querySelector(
@@ -2194,20 +2194,21 @@ if (inputs[1]) {
       }
 
     });
-for (const letra of "ABCDEFGHIJKL") {
-  calcularGrupo(letra);
-}
 
-alert("Grupos recalculados");
-   actualizarMejoresTerceros(); 
+  for (const letra of "ABCDEFGHIJKL") {
+    calcularGrupo(letra);
+  }
+
+  actualizarMejoresTerceros();
   actualizarGanadores();
   actualizarGanadoresOF();
   actualizarGanadoresCF();
   actualizarGanadoresSF();
   actualizarSelectoresEmpate();
-   // Bloquear fase de grupos
-document
-  .querySelectorAll("#grupoA .input-marcador,\
+
+  document
+    .querySelectorAll(
+      "#grupoA .input-marcador,\
 #grupoB .input-marcador,\
 #grupoC .input-marcador,\
 #grupoD .input-marcador,\
@@ -2218,12 +2219,12 @@ document
 #grupoI .input-marcador,\
 #grupoJ .input-marcador,\
 #grupoK .input-marcador,\
-#grupoL .input-marcador")
-  .forEach(input => {
+#grupoL .input-marcador"
+    )
+    .forEach(input => {
+      input.disabled = true;
+    });
 
-    input.disabled = true;
-
-}); 
 }
 
 cargarParticipantesSelector();
