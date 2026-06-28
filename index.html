@@ -1887,7 +1887,8 @@ import {
   getDocs,
  doc,
  getDoc,
-  setDoc,
+setDoc,
+updateDoc, 
   onSnapshot,
  serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
@@ -2236,7 +2237,7 @@ document
   guardarPronostico
 );
 
-async function guardarPronostico() {
+  async function guardarPronostico() {
 
   const participante =
     document.getElementById(
@@ -2248,100 +2249,126 @@ async function guardarPronostico() {
     return;
   }
 
-  const confirmar =
-    confirm(
-      "Una vez guardado no podrá modificar su pronóstico. ¿Desea continuar?"
-    );
+  const docRef = doc(db, "Pronósticos", participante);
+  const snap = await getDoc(docRef);
 
-  if (!confirmar) return;
-
-  const docRef =
-    doc(
-      db,
-      "Pronósticos",
-      participante
-    );
-
-  const snap =
-    await getDoc(docRef);
-
+  // ==========================
+  // SI YA EXISTE EL DOCUMENTO
+  // ==========================
   if (snap.exists()) {
 
+    const datos = snap.data();
+
+    if (datos.eliminatoriasGuardadas) {
+
+      alert(
+        "Ya registró los pronósticos de la fase eliminatoria y no puede modificarlos."
+      );
+
+      return;
+
+    }
+
+    const partidos = datos.partidos || {};
+
+    document
+      .querySelectorAll(".partido-eliminatorio")
+      .forEach((partido, indice) => {
+
+        const inputs =
+          partido.querySelectorAll(".input-marcador");
+
+        const selector =
+          partido.querySelector(".selector-ganador");
+
+        const numeroPartido = indice + 75;
+
+        partidos["partido_" + numeroPartido] = {
+
+          g1: inputs[0]?.value || "",
+          g2: inputs[1]?.value || "",
+          desempate: selector?.value || ""
+
+        };
+
+      });
+
+    await updateDoc(docRef, {
+
+      partidos: partidos,
+      eliminatoriasGuardadas: true,
+      fechaEliminatorias: serverTimestamp()
+
+    });
+
     alert(
-      "Este participante ya registró un pronóstico y no puede modificarlo."
+      "Pronósticos de la fase eliminatoria guardados correctamente."
     );
 
     return;
+
   }
+
+  // ==========================
+  // PRIMER GUARDADO
+  // ==========================
+
+  const confirmar = confirm(
+    "Una vez guardado no podrá modificar su pronóstico. ¿Desea continuar?"
+  );
+
+  if (!confirmar) return;
 
   const partidos = {};
 
   document
-    .querySelectorAll(
-      ".partido, .partido-eliminatorio"
-    )
+    .querySelectorAll(".partido, .partido-eliminatorio")
     .forEach((partido, indice) => {
 
       const inputs =
-        partido.querySelectorAll(
-          ".input-marcador"
-        );
+        partido.querySelectorAll(".input-marcador");
 
       const selector =
-        partido.querySelector(
-          ".selector-ganador"
-        );
+        partido.querySelector(".selector-ganador");
 
-      partidos[
-        "partido_" + (indice + 1)
-      ] = {
+      partidos["partido_" + (indice + 1)] = {
 
         g1: inputs[0]?.value || "",
         g2: inputs[1]?.value || "",
-        desempate:
-          selector?.value || ""
+        desempate: selector?.value || ""
 
       };
 
     });
 
   const goleador =
-  document.getElementById(
-    "goleador"
-  )?.value || "";
-   const campeon =
-  document.getElementById(
-    "campeonPronosticado"
-  )?.textContent || "";
+    document.getElementById("goleador")?.value || "";
 
-const subcampeon =
-  document.getElementById(
-    "subcampeonPronosticado"
-  )?.textContent || "";
+  const campeon =
+    document.getElementById("campeonPronosticado")?.textContent || "";
 
-const tercerLugar =
-  document.getElementById(
-    "tercerLugarPronosticado"
-  )?.textContent || ""; 
-    
- const clasificadosOctavos = [];
+  const subcampeon =
+    document.getElementById("subcampeonPronosticado")?.textContent || "";
 
-for (let i = 1; i <= 16; i++) {
+  const tercerLugar =
+    document.getElementById("tercerLugarPronosticado")?.textContent || "";
 
-  clasificadosOctavos.push(
-    document.getElementById(
-      "octavo_" + i
-    )?.value || ""
-  );
+  const clasificadosOctavos = [];
 
-}  
-await setDoc(
-  doc(db, "Pronósticos", participante),
-  {
+  for (let i = 1; i <= 16; i++) {
+
+    clasificadosOctavos.push(
+      document.getElementById("octavo_" + i)?.value || ""
+    );
+
+  }
+
+  await setDoc(docRef, {
+
     nombre: participante,
-    pruebaGuardado: "CHATGPT",
 
     fechaGuardado: serverTimestamp(),
+
     bloqueado: true,
 
     campeon: campeon,
@@ -2349,16 +2376,17 @@ await setDoc(
     tercerLugar: tercerLugar,
 
     goleador: goleador,
-      clasificadosOctavos:
-  clasificadosOctavos,
+
+    clasificadosOctavos: clasificadosOctavos,
 
     partidos: partidos
-  }
-);
-alert(
-  "Pronóstico guardado correctamente."
-);
-} 
+
+  });
+
+  alert("Pronóstico guardado correctamente.");
+
+}        
+    
   async function calcularRanking() {
 
   const resultadosDoc =
