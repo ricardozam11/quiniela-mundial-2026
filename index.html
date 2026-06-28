@@ -1905,7 +1905,7 @@ window.addEventListener("unhandledrejection", e => {
 
  
 
-alert("1");
+
 const banderas = {
 
   // GRUPO A
@@ -1981,7 +1981,7 @@ const banderas = {
   "Panamá": "🇵🇦"
 
 };
-      alert("B");  
+        
      const terceros = {};   
         
         function obtenerClaveTerceros() {
@@ -1993,7 +1993,7 @@ const banderas = {
 }
 
 function buscarCombinacion() {
-alert("C");
+
     const clave = obtenerClaveTerceros();
 
     return combinacionesTerceros[clave] || null;
@@ -2060,9 +2060,9 @@ console.log("Recaudado:", recaudado);
 }
 
 cargarEstadisticas();
-    alert("Antes Cargar participantes") ;
+    
 async function cargarParticipantesSelector() {
-alert("ENTRO") ;
+
   const selector =
     document.getElementById(
       "participanteSeleccionado"
@@ -2194,9 +2194,9 @@ if (inputs[1]) {
   actualizarGanadoresSF();
   actualizarSelectoresEmpate();
 }
-alert("Bloque1") ;
+
 cargarParticipantesSelector();
-alert("Bloque2") ;
+
 document
 .getElementById(
   "participanteSeleccionado"
@@ -2205,7 +2205,7 @@ document
   "change",
   cargarPronosticoParticipante
 );
-alert("Bloque3") ;
+
 document
 .getElementById("guardarPronostico")
 .addEventListener(
