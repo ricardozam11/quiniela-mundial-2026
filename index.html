@@ -1892,20 +1892,6 @@ import {
  serverTimestamp
 } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
     
-window.onerror = function (msg, src, line) {
-  alert("ERROR: " + msg + " Línea: " + line);
-};
-   window.addEventListener("error", e => {
-  alert("ERROR: " + e.message);
-});
-
-window.addEventListener("unhandledrejection", e => {
-  alert("PROMESA: " + e.reason);
-});     
-
- 
-
-
 const banderas = {
 
   // GRUPO A
@@ -1982,11 +1968,11 @@ const banderas = {
 
 };
         
-     const terceros = {};   
+const terceros = {};   
         
-        function obtenerClaveTerceros() {
+function obtenerClaveTerceros() {
 
-  const clave = window.mejoresTerceros
+const clave = window.mejoresTerceros
     .slice(0, 8)
     .map(t => {
 
@@ -2067,9 +2053,6 @@ if (dinero) {
     "₡ " + recaudado.toLocaleString("es-CR");
 }
 
-console.log("Participantes:", total);
-console.log("Pagados:", pagados);
-console.log("Recaudado:", recaudado);
 
 }
 
@@ -2554,12 +2537,6 @@ await mostrarRanking();
   participantes.forEach(docu => {
 
     const datos = docu.data();
-alert(JSON.stringify(datos));
-    console.log(
-      datos.nombre,
-      JSON.stringify(datos.campeon),
-      JSON.stringify(campeonOficial)
-    );
 
     if (
       limpiarEquipo(datos.campeon) ===
@@ -2795,9 +2772,6 @@ alert(
     }
   );
 
-  alert(
-    "Ganador de marcadores calculado."
-  );
 
 }
         
@@ -2826,8 +2800,7 @@ alert(
       partidos: partidos
     }
   );
-   alert("Resultados oficiales creados.");
-}         
+   
 async function calcularGanadorOctavos() {
 
   const resultadosDoc = await getDoc(
@@ -2905,9 +2878,7 @@ async function calcularGanadorOctavos() {
     }
   );
 
-  alert(
-    "Ganador de octavos calculado."
-  );
+  
 
 }
   
@@ -3156,7 +3127,7 @@ actualizarMejoresTerceros();
 
   });
 
-  alert(mensaje);
+  
 
 }    
         function actualizarMejoresTerceros() {
@@ -3227,8 +3198,7 @@ actualizarMejoresTerceros();
     }
 
   }
-alert(obtenerClaveTerceros()
-     );
+
 }
 
   function actualizarGanadores() {
