@@ -2143,9 +2143,16 @@ if (inputGoleador) {
 
       const DESFASE = -1;
 
+let numero = indice + 1 + DESFASE;
+
+// Ajustar solo eliminatorias
+if (partido.classList.contains("partido-eliminatorio")) {
+  numero -= 3;
+}
+
 const datosPartido =
   partidosGuardados[
-    "partido_" + (indice + 1 + DESFASE)
+    "partido_" + numero
   ];
 
       if (!datosPartido) return;
