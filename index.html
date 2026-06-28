@@ -2698,6 +2698,25 @@ alert(
   );
 
 }
+  async function actualizarResultados() {
+
+  await calcularRanking();
+
+  await calcularGanadorOctavos();
+
+  await calcularGanadorCampeon();
+
+  await calcularGanadorGoleador();
+
+  await mostrarRanking();
+
+  await mostrarGanadorOctavos();
+
+  await mostrarGanadorCampeon();
+
+  await mostrarGanadorGoleador();
+
+}  
     async function mostrarGanadorCampeon() {
 
   const snap = await getDoc(
