@@ -1986,9 +1986,23 @@ const banderas = {
         
         function obtenerClaveTerceros() {
 
-    return Object.keys(terceros)
-        .sort()
-        .join("");
+  const clave = window.mejoresTerceros
+    .slice(0, 8)
+    .map(t => {
+
+      for (const grupo in terceros) {
+
+        if (terceros[grupo].nombre === t.nombre) {
+          return grupo;
+        }
+
+      }
+
+    })
+    .sort()
+    .join("");
+
+  return clave;
 
 }
 
@@ -3187,7 +3201,8 @@ function mostrarClasificados() {
     }
 
   }
-
+alert(obtenerClaveTerceros()
+     );
 }
 
   function actualizarGanadores() {
